@@ -18,7 +18,7 @@
 name: Build and Deploy
 on: [push] # defaults to master
 jobs:
-job1:
+  job1:
     runs-on: ubuntu-latest
     steps:
      - name: Build
