@@ -52,6 +52,8 @@ export default function useAppData() {
   ///     });
   // }, []);
 
+  console.log(process.env.REACT_APP_NEW_SECRET);
+
   useEffect(() => {
     if (user) {
       Promise.all([
