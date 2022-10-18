@@ -51,6 +51,8 @@ name: Build and Deploy
 'on':
   - push
 jobs:
+  env:
+    GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
   job1:
     # - name: job1jj
       runs-on: ubuntu-latest
@@ -63,5 +65,5 @@ jobs:
             npx gh-pages -d build -u "github-actions-bot
             <support+actions@github.com>"
           env:
-            GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+            # GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
             REACT_APP_NEW_SECRET: '${{secrets.REACT_APP_NEW_SECRET}}'
