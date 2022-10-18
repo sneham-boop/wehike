@@ -76,7 +76,6 @@ jobs:
       run: |
         git config --global user.name sneham-boop
         git config --global user.email sneh.km@gmail.com
-        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/werun.git
         npm run deploy
       env:
         user_name: 'github-actions[bot]'
