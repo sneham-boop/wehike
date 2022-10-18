@@ -81,7 +81,7 @@ jobs:
       - name: Build
         run: >
           git remote set-url origin
-          https://git:${GITHUB_TOKEN}@github.com/sneham-boop/werun.git
+          ssh://git@github.com:sneham-boop/werun.git
 
           npx gh-pages -d build -u "github-actions-bot
           <support+actions@github.com>"
