@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "ed59d37ba02a41d153cd",
+    "revision": "1b7d5b9335177809976b",
     "url": "/werun/static/css/main.045c8208.chunk.css"
   },
   {
-    "revision": "ed59d37ba02a41d153cd",
-    "url": "/werun/static/js/main.859bf10b.chunk.js"
+    "revision": "1b7d5b9335177809976b",
+    "url": "/werun/static/js/main.fcae0539.chunk.js"
   },
   {
     "revision": "7f5f1b2757133e877456",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/werun/static/media/rectangle-logo.f1dc6b3a.svg"
   },
   {
-    "revision": "c646c7c890e9239a78b4432f6a71a435",
+    "revision": "6b4ab5390d43a9d0dddcb2813aa77586",
     "url": "/werun/index.html"
   }
 ];
