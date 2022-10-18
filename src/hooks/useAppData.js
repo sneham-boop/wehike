@@ -55,7 +55,7 @@ export default function useAppData() {
   useEffect(() => {
     Promise.all([axios.get("/")])
       .then((response) => {
-        console.log("This is the test response we got from supabase.", response.data)
+        console.log("This is the test response we got from supabase.", response)
       })
       .catch((error) => {
         console.log(error);
