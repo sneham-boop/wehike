@@ -7,7 +7,7 @@ jobs:
       - name: Test
         run: |
           echo $Hi
-          if [$REACT_APP_NEW_SECRET == "new"]
+          if [ $REACT_APP_NEW_SECRET == "new" ]
           then echo "Got secret"
           fi
         env: 
