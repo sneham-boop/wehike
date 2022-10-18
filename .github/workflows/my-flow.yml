@@ -18,5 +18,11 @@ jobs:
         env:
           First_Name: Mona
           
+      - name: Hello world action
+        with: # Set the secret as an input
+          super_secret: ${{ secrets.REACT_APP_NEW_SECRET }}
+        env: # Or as an environment variable
+          super_secret: ${{ secrets.REACT_APP_NEW_SECRET }}
+          
 
           # 
