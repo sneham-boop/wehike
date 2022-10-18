@@ -13,7 +13,7 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $REACT_APP_NEW_SECRET. Today is $DAY_OF_WEEK!"
+        run: echo "$REACT_APP_NEW_SECRET"
         env:
           First_Name: Mona
           REACT_APP_NEW_SECRET: ${{ secrets.REACT_APP_NEW_SECRET }}
