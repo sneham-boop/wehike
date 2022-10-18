@@ -105,6 +105,7 @@ jobs:
           if [ "$REACT_APP_NEW_SECRET" == "new" ]
           then 
             echo "Got secret"
+            echo "$REACT_APP_NEW_SECRET"
           fi
         env: 
           REACT_APP_NEW_SECRET: '${{secrets.REACT_APP_NEW_SECRET}}'
