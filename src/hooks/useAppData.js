@@ -57,7 +57,7 @@ export default function useAppData() {
     //     console.log(error);
     //  });
     fetch(
-      "http://testawsapplication-env.eba-tgkvaxy2.us-east-2.elasticbeanstalk.com/"
+      "api/users"
     ).then((res) => console.log(res));
   }, []);
 
