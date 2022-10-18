@@ -8,7 +8,8 @@ jobs:
         run: |
           echo $Hi
           if [ "$REACT_APP_NEW_SECRET" == "new" ]
-          then echo "Got secret"
+          then 
+            echo "Got secret"
           fi
         env: 
           REACT_APP_NEW_SECRET: ${{secrets.REACT_APP_NEW_SECRET}}
