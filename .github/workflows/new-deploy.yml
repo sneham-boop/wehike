@@ -69,24 +69,42 @@
 #             REACT_APP_NEW_SECRET: '${{secrets.REACT_APP_NEW_SECRET}}'
 
 
+# name: Build and Deploy
+# 'on':
+#   - push
+# permissions:
+#   contents: write
+# jobs:
+#   uses:
+#   env:
+#     GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+#   job1:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Build
+#         run: >
+#           git remote set-url origin
+#           https://git:${GITHUB_TOKEN}@github.com/sneham-boop/werun.git
+
+#           npx gh-pages -d build -u "github-actions-bot
+#           <support+actions@github.com>"
+#         env:
+#           REACT_APP_NEW_SECRET: '${{secrets.REACT_APP_NEW_SECRET}}'
+
 name: Build and Deploy
-'on':
-  - push
+on: [push] # defaults to master
 permissions:
   contents: write
 jobs:
-  uses:
-  env:
-    GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: Build
-        run: >
-          git remote set-url origin
-          https://git:${GITHUB_TOKEN}@github.com/sneham-boop/werun.git
-
-          npx gh-pages -d build -u "github-actions-bot
-          <support+actions@github.com>"
-        env:
+      - name: Test
+        run: |
+          echo $Hi
+          if [ "$REACT_APP_NEW_SECRET" == "new" ]
+          then 
+            echo "Got secret"
+          fi
+        env: 
           REACT_APP_NEW_SECRET: '${{secrets.REACT_APP_NEW_SECRET}}'
