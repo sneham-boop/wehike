@@ -18,18 +18,17 @@
 name: Build and Deploy
 on: [push] # defaults to master
 jobs:
-job1:
-  - name: MyFirstYAMLJob
-
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build
-        run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REACT_APP_NEW_SECRET: "${{secrets.REACT_APP_NEW_SECRET}}"
+  job1:
+    - name: MyFirstYAMLJob
+      runs-on: ubuntu-latest
+      steps:
+        - name: Build
+          run: |
+            git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+            npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            REACT_APP_NEW_SECRET: "${{secrets.REACT_APP_NEW_SECRET}}"
 # on: [push]
 # job1:
 #   runs-on: ubuntu-latest
