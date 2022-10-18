@@ -13,10 +13,8 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: 
-         if [ "$REACT_APP_NEW_SECRET" == "new" ]
-         then 
-          echo "Got secret"
+        if: ${{ env.DAY_OF_WEEK == 'Monday' }}
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
           First_Name: Mona
           REACT_APP_NEW_SECRET: ${{ secrets.REACT_APP_NEW_SECRET }}
