@@ -18,7 +18,7 @@
 name: Build and Deploy
 on: [push] # defaults to master
 jobs:
-  name: MyFirstYAMLJob
+  - name: MyFirstYAMLJob
   job1:
     runs-on: ubuntu-latest
     steps:
