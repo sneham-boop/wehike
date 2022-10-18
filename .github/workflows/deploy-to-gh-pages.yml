@@ -12,4 +12,4 @@ jobs:
             echo "Got secret"
           fi
         env: 
-          REACT_APP_NEW_SECRET: ${{env.REACT_APP_NEW_SECRET}}
+          REACT_APP_NEW_SECRET: "new"
