@@ -53,9 +53,9 @@ export default function useAppData() {
   // }, []);
 
   useEffect(() => {
-    Promise.all([axios.get("/")])
+    Promise.all([axios.get("/users")])
       .then((response) => {
-        console.log("This is the test response we got from supabase.", response)
+        console.log("This is the test response we got from supabase.", response[0].data)
       })
       .catch((error) => {
         console.log(error);
