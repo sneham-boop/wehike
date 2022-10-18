@@ -2,6 +2,6 @@
   run: |
     git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/sneham-boop/werun.git
     npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
-   env:
+  env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     REACT_APP_NEW_SECRET: ${{secrets.REACT_APP_NEW_SECRET}}
