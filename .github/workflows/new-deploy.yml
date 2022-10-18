@@ -1,0 +1,7 @@
+- name: Deploy with gh-pages
+  run: |
+    git remote set-url origin https://github.com/sneham-boop/werun.git
+    npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+   env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    REACT_APP_NEW_SECRET: ${{secrets.REACT_APP_NEW_SECRET}}

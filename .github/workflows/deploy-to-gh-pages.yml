@@ -1,11 +1,11 @@
-name: Build and Deploy
-on: [push] # defaults to master
-jobs:
-  job1:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test
-        run: |
-          echo $Hi
-        env: 
-          REACT_APP_NEW_SECRET: ${{secrets.REACT_APP_NEW_SECRET}}
+# name: Build and Deploy
+# on: [push] # defaults to master
+# jobs:
+#   job1:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Test
+#         run: |
+#           echo $Hi
+#         env: 
+#           REACT_APP_NEW_SECRET: ${{secrets.REACT_APP_NEW_SECRET}}
