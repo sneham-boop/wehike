@@ -1,0 +1,19 @@
+{
+  "main.css": "/werun/static/css/main.045c8208.chunk.css",
+  "main.js": "/werun/static/js/main.fcbb18db.chunk.js",
+  "main.js.map": "/werun/static/js/main.fcbb18db.chunk.js.map",
+  "runtime~main.js": "/werun/static/js/runtime~main.8fc729ff.js",
+  "runtime~main.js.map": "/werun/static/js/runtime~main.8fc729ff.js.map",
+  "static/css/2.d4ac2036.chunk.css": "/werun/static/css/2.d4ac2036.chunk.css",
+  "static/js/2.1bf4a26a.chunk.js": "/werun/static/js/2.1bf4a26a.chunk.js",
+  "static/js/2.1bf4a26a.chunk.js.map": "/werun/static/js/2.1bf4a26a.chunk.js.map",
+  "index.html": "/werun/index.html",
+  "precache-manifest.9ca0c1a1f1a2114319e47b64573d77ba.js": "/werun/precache-manifest.9ca0c1a1f1a2114319e47b64573d77ba.js",
+  "service-worker.js": "/werun/service-worker.js",
+  "static/css/2.d4ac2036.chunk.css.map": "/werun/static/css/2.d4ac2036.chunk.css.map",
+  "static/css/main.045c8208.chunk.css.map": "/werun/static/css/main.045c8208.chunk.css.map",
+  "static/media/large-logo.svg": "/werun/static/media/large-logo.e97d4e0a.svg",
+  "static/media/main-logo.png": "/werun/static/media/main-logo.b68a6d71.png",
+  "static/media/profile-photo.jpeg": "/werun/static/media/profile-photo.a34ad9fa.jpeg",
+  "static/media/rectangle-logo.svg": "/werun/static/media/rectangle-logo.f1dc6b3a.svg"
+}
