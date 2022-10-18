@@ -49,9 +49,18 @@ export default function useAppData() {
   //     })
   //     .catch((error) => {
   //       console.log(error);
-  /// /    });
+  //    });
   // }, []);
 
+  useEffect(() => {
+    Promise.all([axios.get("http://testawsapplication-env.eba-tgkvaxy2.us-east-2.elasticbeanstalk.com/")])
+      .then((response) => {
+        console.log("This is the test response we got from supabase.", response.data)
+      })
+      .catch((error) => {
+        console.log(error);
+     });
+  }, []);
   
 
   useEffect(() => {
