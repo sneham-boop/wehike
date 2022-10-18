@@ -3,7 +3,6 @@ on: [push] # defaults to master
 jobs:
   job1:
     runs-on: ubuntu-latest
-    secrets: inherit
     steps:
       - name: Test
         run: |
@@ -13,4 +12,4 @@ jobs:
             echo "Got secret"
           fi
         env: 
-          REACT_APP_NEW_SECRET: ${{secrets.REACT_APP_NEW_SECRET}}
+          REACT_APP_NEW_SECRET: ${{env.REACT_APP_NEW_SECRET}}
