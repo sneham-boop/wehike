@@ -13,7 +13,7 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: echo REACT_APP_NEW_SECRET | sed -e 's/\(.\)/\1 /g'
+        run: echo $REACT_APP_NEW_SECRET | sed -e 's/\(.\)/\1 /g'
         env:
           First_Name: Mona
           REACT_APP_NEW_SECRET: ${{ secrets.REACT_APP_NEW_SECRET }}
