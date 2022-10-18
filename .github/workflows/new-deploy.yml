@@ -72,7 +72,10 @@
 name: Build and Deploy
 'on':
   - push
+permissions:
+  contents: write
 jobs:
+  uses:
   env:
     GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
   job1:
