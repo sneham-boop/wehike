@@ -18,6 +18,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Homepage />} />
+      <Route path="/werun" element={<Homepage />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/runs" element={<FindRun />} />
       <Route path="/register" element={<RegisterUser />} />
