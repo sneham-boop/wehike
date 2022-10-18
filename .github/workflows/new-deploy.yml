@@ -1,144 +1,47 @@
-# - name: Deploy with gh-pages
-#   run: |
-#     git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/sneham-boop/werun.git
-#     npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
-#    env:
-#     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#     REACT_APP_NEW_SECRET: ${{secrets.REACT_APP_NEW_SECRET}}
+name: CI/CD
 
-# env:
-#   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-#   REACT_APP_NEW_SECRET: "${{secrets.REACT_APP_NEW_SECRET}}"
-# name: Build
-# on: [push] # defaults to master
-# run: |
-#     git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-#     npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
-
-# name: Build and Deploy
-# on: [push] # defaults to master
-# jobs:
-#   job1:
-#     - name: job1
-#       runs-on: ubuntu-latest
-#       steps:
-#         - name: Build
-#           run: |
-#             git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-#             npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
-#           env:
-#             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#             REACT_APP_NEW_SECRET: "${{secrets.REACT_APP_NEW_SECRET}}"
-# on: [push]
-# job1:
-#   runs-on: ubuntu-latest
-#   steps:
-#     -
-#       env:
-#         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-#         REACT_APP_NEW_SECRET: "${{secrets.REACT_APP_NEW_SECRET}}"
-#       name: Build
-#       run: |
-#           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-#           npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
-# jobs: ~
-# name: "Build and Deploy"
-# # true:
-# #   - push
-
-
-# name: Build and Deploy
-# 'on':
-#   - push
-# jobs:
-#   env:
-#     GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-#   job1:
-#     # - name: job1jj
-#       runs-on: ubuntu-latest
-#       steps:
-#         - name: Build
-#           run: >
-#             git remote set-url origin
-#             https://git:${GITHUB_TOKEN}@github.com/sneham-boop/werun.git
-
-#             npx gh-pages -d build -u "github-actions-bot
-#             <support+actions@github.com>"
-#           env:
-#             # GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-# #            REACT_APP_NEW_SECRET: '${{secrets.REACT_APP_NEW_SECRET}}'
-
-
-# name: Build and Deploy
-# 'on':
-#   - push
-# permissions:
-#   contents: write
-# jobs:
-#   job1:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Build
-#         run: >
-#           git remote set-url origin
-#           https://github.com/sneham-boop/werun.git
-
-#           npx gh-pages -d build -u "github-actions-bot
-#           <support+actions@github.com>"
-#         env:
-#           REACT_APP_NEW_SECRET: '${{secrets.REACT_APP_NEW_SECRET}}'
-
-# name: Build and Deploy
-# on: [push] # defaults to maser
-# permissions:
-#   contents: write
-# jobs:
-#   job1:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Test
-#         run: |
-#           echo $Hi
-#           if [ "$REACT_APP_NEW_SECRET" == "new" ]
-#           then 
-#             echo "Got secret"
-#             echo "$REACT_APP_NEW_SECRET"
-#           fi
-#         env: 
-#           REACT_APP_NEW_SECRET: '${{secrets.REACT_APP_NEW_SECRET}}'
-
-name: Deploy React Application
-
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build_test:
-    # The type of runner that the job will run on
+  build:
+
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [12.x] # We will deploy with only one version of node  
+        node-version: [12.x]
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm ci, build and test
-        run: |
-          npm ci
-          npm run deploy    
-      - name: deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./build 
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run the tests and generate coverage report
+      run: npm test -- --coverage
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+
+    - name: Build
+      run: npm run build
+
+    - name: Deploy
+      run: |
+        git config --global user.name $user_name
+        git config --global user.email $user_email
+        git remote set-url origin https://${github_token}@github.com/${repository}
+        npm run deploy
+      env:
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        github_token: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
+        repository: ${{ github.repository }}
