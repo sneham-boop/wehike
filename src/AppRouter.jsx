@@ -10,11 +10,12 @@ import App from "./App";
 import {
   createRoutesFromElements,
   createBrowserRouter,
+  createHashRouter,
   Route,
 } from "react-router-dom";
 import ShowRunInfo from "./components/ShowRunInfo";
 
-export const router = createBrowserRouter(
+export const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Homepage />} />
