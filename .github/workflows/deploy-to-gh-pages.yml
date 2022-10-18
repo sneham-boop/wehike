@@ -1,15 +1,15 @@
-name: Build and Deploy
-on: [push] # defaults to master
-jobs:
-  job1:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test
-        run: |
-          echo $Hi
-          if [ "$REACT_APP_NEW_SECRET" == "new" ]
-          then 
-            echo "Got secret"
-          fi
-        env: 
-          REACT_APP_NEW_SECRET: "new"
+# name: Build and Deploy
+# on: [push] # defaults to master
+# jobs:
+#   job1:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Test
+#         run: |
+#           echo $Hi
+#           if [ "$REACT_APP_NEW_SECRET" == "new" ]
+#           then 
+#             echo "Got secret"
+#           fi
+#         env: 
+#           REACT_APP_NEW_SECRET: "new"
