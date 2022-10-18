@@ -7,25 +7,25 @@ import "../../styles/Map.css";
 import { userCoordinatesAtom } from "../../hooks/userCoords";
 
 const DefaultMap = ({ center, zoom }) => {
-  const runs = useRecoilValue(runsState);
+  // const runs = useRecoilValue(runsState);
   const [currentLocation, setCurrentLocation] =
     useRecoilState(userCoordinatesAtom);
 
-  const showMarkers = (runs) => {
-    const runsArray = Object.values(runs);
-    return runsArray.map((run) => (
-      <Markers
-        key={run.id}
-        id={run.id}
-        name={run.name}
-        description={run.name}
-        distance={run.distance}
-        date={run.date}
-        lat={run.latitude}
-        lng={run.longitude}
-      />
-    ));
-  };
+  // const showMarkers = (runs) => {
+  //   const runsArray = Object.values(runs);
+  //   return runsArray.map((run) => (
+  //     <Markers
+  //       key={run.id}
+  //       id={run.id}
+  //       name={run.name}
+  //       description={run.name}
+  //       distance={run.distance}
+  //       date={run.date}
+  //       lat={run.latitude}
+  //       lng={run.longitude}
+  //     />
+  //   ));
+  // };
 
   const myKey = process.env.REACT_APP_MAP_API_KEY;
   useEffect(() => {
@@ -54,7 +54,7 @@ const DefaultMap = ({ center, zoom }) => {
             id="Me"
             description="You are here!"
           />
-          {showMarkers(runs)}
+          {/* {showMarkers(runs)} */}
         </GoogleMapReact>
       </div>
     </>

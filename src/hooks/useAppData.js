@@ -41,16 +41,16 @@ export default function useAppData() {
   const [plannerRuns, setPlannerRuns] = useRecoilState(plannerRunsState);
   const [user, setUser] = useRecoilState(userState);
 
-  useEffect(() => {
-    Promise.all([axios.get("/api/runs")])
-      .then((response) => {
-        const { runs } = response[0].data;
-        setRuns(runs);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   Promise.all([axios.get("/api/runs")])
+  //     .then((response) => {
+  //       const { runs } = response[0].data;
+  //       setRuns(runs);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  ///     });
+  // }, []);
 
   useEffect(() => {
     if (user) {
