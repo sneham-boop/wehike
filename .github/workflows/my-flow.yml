@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: "Say Hello Mona it's Monday"
         if: ${{ env.DAY_OF_WEEK == 'Monday' }}
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        run: echo "$Greeting $First_Name. Today is $REACT_APP_NEW_SECRET!"
         env:
           First_Name: Mona
           REACT_APP_NEW_SECRET: ${{ secrets.REACT_APP_NEW_SECRET }}
