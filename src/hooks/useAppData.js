@@ -1,11 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
-import {
-  atom,
-  useRecoilState,
-} from "recoil";
+import { atom, useRecoilState } from "recoil";
 import { recoilPersist } from "recoil-persist";
-
 
 // Used to persist global app state after manual refreshes.
 // See key in local storage for browser
@@ -53,15 +49,17 @@ export default function useAppData() {
   // }, []);
 
   useEffect(() => {
-    Promise.all([axios.get("http://testawsapplication-env.eba-tgkvaxy2.us-east-2.elasticbeanstalk.com/")])
-      .then((response) => {
-        console.log("This is the test response we got from supabase.", response[0].data)
-      })
-      .catch((error) => {
-        console.log(error);
-     });
+    // Promise.all([axios.get("http://testawsapplication-env.eba-tgkvaxy2.us-east-2.elasticbeanstalk.com/")])
+    //   .then((response) => {
+    //     console.log("This is the test response we got from supabase.", response[0].data)
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //  });
+    fetch(
+      "http://testawsapplication-env.eba-tgkvaxy2.us-east-2.elasticbeanstalk.com/"
+    ).then((res) => console.log(res));
   }, []);
-  
 
   useEffect(() => {
     if (user) {
@@ -141,13 +139,26 @@ export default function useAppData() {
     address_to,
     lat_to,
     lng_to,
-    file
-    }) {
+    file,
+  }) {
     try {
       const createRunResponse = await axios({
         method: "post",
         url: "/api/runs",
-        data: { planner_id, name, description, location: address, distance, time, date, lat, lng, location_to: address_to, latitude_to: lat_to, longitude_to: lng_to },
+        data: {
+          planner_id,
+          name,
+          description,
+          location: address,
+          distance,
+          time,
+          date,
+          lat,
+          lng,
+          location_to: address_to,
+          latitude_to: lat_to,
+          longitude_to: lng_to,
+        },
       });
       const { run } = createRunResponse.data;
       const addImageResponse = await axios({
@@ -173,21 +184,22 @@ export default function useAppData() {
     age,
     gender,
     runner,
-    planner
-    }) {
+    planner,
+  }) {
     try {
       const registerUserResponse = await axios({
         method: "post",
         url: "/api/users",
-        data: { 
-          name, 
-          email, 
-          password, 
-          phone, 
-          age, 
-          gender, 
-          runner, 
-          planner },
+        data: {
+          name,
+          email,
+          password,
+          phone,
+          age,
+          gender,
+          runner,
+          planner,
+        },
       });
       const { user } = registerUserResponse.data;
       if (registerUserResponse.status !== 200) return false;
@@ -205,6 +217,6 @@ export default function useAppData() {
     joinRun,
     canJoinRun,
     createRun,
-    registerUser
+    registerUser,
   };
 }
