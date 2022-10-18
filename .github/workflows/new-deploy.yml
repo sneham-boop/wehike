@@ -92,7 +92,7 @@
 #           REACT_APP_NEW_SECRET: '${{secrets.REACT_APP_NEW_SECRET}}'
 
 name: Build and Deploy
-on: [push] # defaults to master
+on: [push] # defaults to maser
 permissions:
   contents: write
 jobs:
