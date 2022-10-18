@@ -1,9 +1,9 @@
 name: Build and Deploy
 on: [push] # defaults to master
 jobs:
-  secrets: inherit
   job1:
     runs-on: ubuntu-latest
+    secrets: inherit
     steps:
       - name: Test
         run: |
