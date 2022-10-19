@@ -46,7 +46,7 @@ export default function Navigation() {
               Join A Run
             </Link>
           </Nav>
-          <Nav pullRight>
+          <Nav pullright="true">
             {user === null && (
               <Link className="nav-link" to="/signin">
                 Sign In
