@@ -38,7 +38,7 @@ export default function useAppData() {
   const [user, setUser] = useRecoilState(userState);
 
   useEffect(() => {
-    Promise.all([axios.get("https://werun-server.herokuapp.com/runs")])
+    Promise.all([axios.get("http://testawsapplication-env.eba-tgkvaxy2.us-east-2.elasticbeanstalk.com/runs")])
       .then((response) => {
         const { runs } = response[0].data;
         console.log(runs);
