@@ -38,7 +38,7 @@ export default function useAppData() {
   const [user, setUser] = useRecoilState(userState);
 
   useEffect(() => {
-    Promise.all([axios.get("https://werun-server.herokuapp.com/runs")])
+    Promise.all([axios.get("https://werun-server.herokuapp.com/api/runs")])
       .then((response) => {
         const { runs } = response[0].data;
         console.log(runs);
@@ -49,24 +49,11 @@ export default function useAppData() {
      });
   }, []);
 
-  // useEffect(() => {
-  //   Promise.all([axios.get("https://werun-server.herokuapp.com/users")])
-  //     .then((response) => {
-  //       console.log("This is the test response we got from supabase.", response[0].data)
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //    });
-  //   // fetch(
-  //   //   "/api/users"
-  //   // ).then((res) => console.log(res));
-  // }, []);
-
   useEffect(() => {
     if (user) {
       Promise.all([
-        axios.get(`/api/runs/runner/${user.id}`),
-        axios.get(`/api/runs/planner/${user.id}`),
+        axios.get(`https://werun-server.herokuapp.com/api/runs/runner/${user.id}`),
+        axios.get(`https://werun-server.herokuapp.com/api/runs/planner/${user.id}`),
       ])
         .then((response) => {
           const { runnerRuns } = response[0].data;
