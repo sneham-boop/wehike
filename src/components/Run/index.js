@@ -47,7 +47,7 @@ export default function Run(props) {
         <img
           alt="Shows running space"
           className="run-image"
-          src={`/api/runs/image/${run.id}`}
+          src={`https://werun-server.herokuapp.com/runs/image/${run.id}`}
         ></img>
 
         <div className="run-body">

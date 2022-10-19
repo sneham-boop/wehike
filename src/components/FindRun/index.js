@@ -9,43 +9,44 @@ import useAppData from "../../hooks/useAppData";
 import "../../styles/FindRun.css";
 
 export default function FindRun() {
-  // const runs = useRecoilValue(runsState);
-  // const user = useRecoilValue(userState);
-  // const { joinRun, canJoinRun } = useAppData();
-  // const navigate = useNavigate();
-  // const [joinButtonPressed, setJoinButtonPressed] = useState(false);
+  const runs = useRecoilValue(runsState);
+  const user = useRecoilValue(userState);
+  const { joinRun, canJoinRun } = useAppData();
+  const navigate = useNavigate();
+  const [joinButtonPressed, setJoinButtonPressed] = useState(false);
 
-  // const join = (user_id, run_id) => {
-  //   // Check if joining is possible
-  //   if (!canJoinRun(run_id)) {
-  //     console.log("You cannot join this run.");
-  //     navigate("/");
-  //     return;
-  //   }
-  //   // Join if possible
-  //   joinRun(user_id, run_id).then((response) => {
-  //     if (response) {
-  //       setJoinButtonPressed(true);
-  //     }
-  //   });
-  // };
+  const join = (user_id, run_id) => {
+    // Check if joining is possible
+    if (!canJoinRun(run_id)) {
+      console.log("You cannot join this run.");
+      navigate("/");
+      return;
+    }
+    // Join if possible
+    joinRun(user_id, run_id).then((response) => {
+      if (response) {
+        setJoinButtonPressed(true);
+      }
+    });
+  };
 
-  // const showAvailableRuns = (runs, type) => {
-  //   const runsArray = Object.values(runs);
-  //   return runsArray.map((run) => {
-  //     return (
-  //       run.future_run && (
-  //         <Run
-  //           key={run.id}
-  //           run={run}
-  //           type={type}
-  //           join={() => join(user.id, run.id)}
-  //           canJoinRun={canJoinRun}
-  //         />
-  //       )
-  //     );
-  //   });
-  // };
+  const showAvailableRuns = (runs, type) => {
+    const runsArray = Object.values(runs);
+    console.log(runsArray);
+    return runs.map((run) => {
+      return (
+        // run.future_run && (
+          <Run
+            key={run.id}
+            run={run}
+            type={type}
+            join={() => join(user.id, run.id)}
+            canJoinRun={canJoinRun}
+          />
+        // )
+      );
+    });
+  };
 
   return (
     <>
@@ -61,15 +62,15 @@ export default function FindRun() {
             with weRun and plan your own.
           </p>
         </section>
-        {/* {showAvailableRuns(runs, "available")} */}
+        {showAvailableRuns(runs, "available")}
       </section>
-      {/* {user && (
+      {user && (
         <JoiningStatus
           joinButtonPressed={joinButtonPressed}
           setJoinButtonPressed={setJoinButtonPressed}
           text="JOINING"
         />
-      )} */}
+      )}
     </>
   );
 }
