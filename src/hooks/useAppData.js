@@ -49,7 +49,7 @@ export default function useAppData() {
   // }, []);
 
   useEffect(() => {
-    Promise.all([axios.get("/users")])
+    Promise.all([axios.get("https://werun-server.herokuapp.com/users")])
       .then((response) => {
         console.log("This is the test response we got from supabase.", response[0].data)
       })
