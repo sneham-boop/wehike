@@ -62,7 +62,7 @@ export default function FindRun() {
             with weRun and plan your own.
           </p>
         </section>
-        {showAvailableRuns(runs, "available")}
+        {runs && showAvailableRuns(runs, "available")}
       </section>
       {user && (
         <JoiningStatus
