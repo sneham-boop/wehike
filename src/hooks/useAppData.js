@@ -49,16 +49,16 @@ export default function useAppData() {
   // }, []);
 
   useEffect(() => {
-    // Promise.all([axios.get("http://testawsapplication-env.eba-tgkvaxy2.us-east-2.elasticbeanstalk.com/")])
-    //   .then((response) => {
-    //     console.log("This is the test response we got from supabase.", response[0].data)
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //  });
-    fetch(
-      "api/users"
-    ).then((res) => console.log(res));
+    Promise.all([axios.get("https://werun-server.herokuapp.com/users")])
+      .then((response) => {
+        console.log("This is the test response we got from supabase.", response[0].data)
+      })
+      .catch((error) => {
+        console.log(error);
+     });
+    // fetch(
+    //   "/api/users"
+    // ).then((res) => console.log(res));
   }, []);
 
   useEffect(() => {
