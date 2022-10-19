@@ -69,7 +69,7 @@ export default function useAppData() {
 
   function login(email, password) {
     return axios
-      .post("/api/login", { email, password })
+      .post("https://werun-server.herokuapp.com/api/login", { email, password })
       .then((response) => {
         const { user } = response.data;
         setUser(user);
@@ -82,7 +82,7 @@ export default function useAppData() {
 
   function logout() {
     return axios
-      .post("/api/logout")
+      .post("https://werun-server.herokuapp.com/api/logout")
       .then(() => {
         setUser(null);
         setRunnerRuns(null);
