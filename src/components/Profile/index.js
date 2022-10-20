@@ -14,7 +14,7 @@ import {
 } from "../../hooks/useAppData";
 import { useRecoilValue } from "recoil";
 import useAppData from "../../hooks/useAppData";
-import profilePhoto from '../../images/profile-photo.jpeg';
+import profilePhoto from "../../images/profile-photo.jpeg";
 
 export default function Profile() {
   const user = useRecoilValue(userState);
@@ -22,7 +22,6 @@ export default function Profile() {
   const plannerRuns = useRecoilValue(plannerRunsState);
   const { joinRun, canJoinRun } = useAppData();
   const [runData, setRunData] = useState({ distance: 0, minutes: 0, count: 0 });
-
 
   const showRunnersRuns = (runs, type) => {
     const runsArray = Object.values(runs);
@@ -39,19 +38,17 @@ export default function Profile() {
   };
 
   const profilePicture = (
-    <img
-      className="profile-pic"
-      src={profilePhoto}
-      alt="icon-profile"
-    ></img>
+    <img className="profile-pic" src={profilePhoto} alt="icon-profile"></img>
   );
 
   useEffect(() => {
     let distance = 0,
       minutes = 0,
       count = 0;
+    const today = new Date();
     for (const key in runnerRuns) {
-      if (runnerRuns[key].future_run === false) {
+      const eventDate = new Date(runnerRuns[key].date);
+      if (eventDate < today) {
         distance += parseInt(runnerRuns[key].distance);
         minutes += parseInt(runnerRuns[key].time);
         count += 1;
