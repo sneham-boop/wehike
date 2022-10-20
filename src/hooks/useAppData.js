@@ -106,9 +106,9 @@ export default function useAppData() {
 
   function joinRun(runner_id, run_id) {
     return axios
-      .post("/api/register", { runner_id, run_id })
+      .post("https://werun-server.herokuapp.com/api/register", { runner_id, run_id })
       .then((response) => {
-        const { user_run } = response.data;
+        const { user_run, message } = response.data;
 
         if (user_run) return true;
       })
@@ -135,7 +135,7 @@ export default function useAppData() {
     try {
       const createRunResponse = await axios({
         method: "post",
-        url: "/api/runs",
+        url: "https://werun-server.herokuapp.com/api/runs",
         data: {
           planner_id,
           name,
@@ -154,7 +154,7 @@ export default function useAppData() {
       const { run } = createRunResponse.data;
       const addImageResponse = await axios({
         method: "post",
-        url: `/api/image/${run.id}`,
+        url: `https://werun-server.herokuapp.com/api/image/${run.id}`,
         data: file,
         headers: {
           "Content-Type": "image/jpeg",
