@@ -38,6 +38,7 @@ export default function RegisterRun() {
     address_to: "",
   });
 
+  console.log(runData.time);
 
   const navigate = useNavigate();
   const { createRun } = useAppData();
