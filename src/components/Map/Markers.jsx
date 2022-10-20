@@ -14,21 +14,27 @@ const Markers = ({ id, $hover, description, distance, date }) => {
     </Tooltip>
   );
 
+  const goToRun = (id) => {
+    const element = document.getElementById(`run-${id}`);
+    element.scrollIntoView();
+  };
+
   return (
     <OverlayTrigger
       placement="left"
       delay={{ show: 100, hide: 100 }}
       overlay={renderTooltip}
     >
-      <a href={`#run-${id}`}>
+      {/* <a href={`#run-${id}`}> */}
         <div
           className={$hover ? "circle hover" : "circle"}
+          onClick={()=>goToRun(id)}
         >
           <span className="circleText">
             {id}
           </span>
         </div>
-      </a>
+      {/* </a> */}
     </OverlayTrigger>
   );
 };

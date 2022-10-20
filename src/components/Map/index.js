@@ -9,7 +9,7 @@ export default function Map() {
   const center = useRecoilValue(userCoordinatesAtom);
   const zoom = 10;
 
-  const handleClick = () => {
+  const goToRunsList = () => {
     const element = document.getElementById("available-runs");
     element.scrollIntoView();
   };
@@ -25,7 +25,7 @@ export default function Map() {
             below.
           </p>
 
-          <span className="material-symbols-rounded" onClick={handleClick}>
+          <span className="material-symbols-rounded" onClick={goToRunsList}>
             expand_more
           </span>
 
