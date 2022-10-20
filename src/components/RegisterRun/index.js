@@ -13,21 +13,21 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../hooks/useAppData";
 import useAppData from "../../hooks/useAppData";
+import useTime from "../../hooks/useTime";
 import "react-datepicker/dist/react-datepicker.css";
 import AutoComplete from "./AutoComplete";
 
 export default function RegisterRun() {
-
   //Get user and update form state
   const user = useRecoilValue(userState);
   const [joinButtonPressed, setJoinButtonPressed] = useState(false);
-
+  const { currentTime } = useTime();
   const [runData, setRunData] = useState({
     planner_id: "",
     name: "",
     description: "",
     distance: "",
-    time: `${new Date().getHours()}:${new Date().getMinutes()}`,
+    time: "",
     date: new Date(),
     file: "",
     lat: "",
@@ -38,16 +38,16 @@ export default function RegisterRun() {
     address_to: "",
   });
 
-  console.log(runData.time);
-
   const navigate = useNavigate();
   const { createRun } = useAppData();
 
   const handleChange = (e) => {
-    setRunData({ ...runData, [e.target.name]: e.target.value });
+    setRunData((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
   };
 
- //Submit to database
+  //Submit to database
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -61,10 +61,9 @@ export default function RegisterRun() {
     //send data
     const response = createRun({ ...runData });
     response && setJoinButtonPressed(true);
-    
+
     // setValidated(true)
     // if (validated)
-
   };
 
   const datePick = () => {
@@ -76,7 +75,11 @@ export default function RegisterRun() {
           required
           name="date"
           selected={runData.date}
-          onChange={(date) => setRunData({ ...runData, date: date })}
+          onChange={(date) =>
+            setRunData((prev) => {
+              return { ...prev, date: date };
+            })
+          }
           key={runData.date}
         />
       </Form.Group>
@@ -110,9 +113,13 @@ export default function RegisterRun() {
       navigate("/signin");
     }
     if (user) {
-      setRunData({ ...runData, planner_id: user.id });
+      setTimeout(() => {
+        setRunData((prev) => {
+          return { ...prev, planner_id: user.id, time: currentTime };
+        });
+      }, 100);
     }
-  }, []);
+  }, [currentTime]);
 
   return (
     <div className="forms">
@@ -219,11 +226,13 @@ export default function RegisterRun() {
                 key={runData.time}
                 type="time"
                 name="time"
-                placeholder="Time"
                 value={runData.time}
-                onChange={(event) =>
-                  setRunData({ ...runData, time: event.target.value })
-                }
+                onChange={(event) => {
+                  const time = event.target.value;
+                  setRunData((prev) => {
+                    return { ...prev, time: time };
+                  });
+                }}
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               <Form.Control.Feedback type="invalid">
@@ -252,10 +261,10 @@ export default function RegisterRun() {
         </Button>
       </Form>
       <JoiningStatus
-          joinButtonPressed={joinButtonPressed}
-          setJoinButtonPressed={setJoinButtonPressed}
-          text="PLANNING"
-        />
+        joinButtonPressed={joinButtonPressed}
+        setJoinButtonPressed={setJoinButtonPressed}
+        text="PLANNING"
+      />
     </div>
   );
 }
