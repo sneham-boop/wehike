@@ -207,6 +207,12 @@ export default function useAppData() {
     }
   }
 
+  const pastEvent = (date) => {
+    const today = new Date();
+    if (date < today) return true;
+    return false;
+  }
+
   return {
     login,
     logout,
@@ -214,5 +220,6 @@ export default function useAppData() {
     canJoinRun,
     createRun,
     registerUser,
+    pastEvent
   };
 }
