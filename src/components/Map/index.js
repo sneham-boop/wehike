@@ -5,10 +5,14 @@ import { userCoordinatesAtom } from "../../hooks/userCoords";
 import { Link } from "react-router-dom";
 import DefaultMap from "./DefaultMap";
 
-
 export default function Map() {
   const center = useRecoilValue(userCoordinatesAtom);
   const zoom = 10;
+
+  const handleClick = () => {
+    const element = document.getElementById("available-runs");
+    element.scrollIntoView();
+  };
 
   return (
     <>
@@ -20,12 +24,12 @@ export default function Map() {
             each run. Click to go to the run. You can also see a full list
             below.
           </p>
-          <a href="#available-runs">
-            <span className="material-symbols-rounded">
-              expand_more
-            </span>
+          <a onClick={handleClick}>
+            <span className="material-symbols-rounded">expand_more</span>
           </a>
-          <p>Can't find a run near you? Plan one <Link to="/create">here</Link>.</p>
+          <p>
+            Can't find a run near you? Plan one <Link to="/create">here</Link>.
+          </p>
         </section>
         <DefaultMap center={center} zoom={zoom} />
       </div>
