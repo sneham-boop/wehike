@@ -35,7 +35,6 @@ export default function Run(props) {
       setTime(`${run.time} min`);
     }
     const eventDate = new Date(run.date);
-    console.log(run)
     if (!pastEvent(eventDate)) {
       setEventTime(`On ${run.date} at ${run.event_time}`);
     } else {
