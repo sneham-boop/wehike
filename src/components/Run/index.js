@@ -6,13 +6,14 @@ import JoinButton from "./JoinButton";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import ShowRunInfo from "../ShowRunInfo";
+import useAppData from "../../hooks/useAppData";
 
 export default function Run(props) {
   const { run, type, canJoinRun, join } = props;
-  const joinStatus= canJoinRun(run.id) || false;
+  const joinStatus = canJoinRun(run.id) || false;
   const [time, setTime] = useState("");
   const [eventTime, setEventTime] = useState("");
-
+  const { pastEvent } = useAppData();
   const [showInfoModal, setShowInfoModal] = useState(false);
 
   const handleCloseInfoModal = () => {
@@ -33,10 +34,11 @@ export default function Run(props) {
     if (run.time !== 0 && type === "attended") {
       setTime(`${run.time} min`);
     }
-    if (run.future_run) {
-      setEventTime(`${run.date} at ${run.event_time}`);
-    }
-    if (!run.future_run) {
+    const eventDate = new Date(run.date);
+    console.log(run)
+    if (!pastEvent(eventDate)) {
+      setEventTime(`On ${run.date} at ${run.event_time}`);
+    } else {
       setEventTime(`Was on ${run.date} at ${run.event_time}`);
     }
   }, []);
@@ -76,9 +78,17 @@ export default function Run(props) {
           <p>{run.description}</p>
           <div className="run-desc">
             <ListGroup variant="flush">
-              <ListGroup.Item><strong>When:</strong> {eventTime}</ListGroup.Item>
-              <ListGroup.Item><strong>Distance:</strong> {run.distance} km</ListGroup.Item>
-              {time && <ListGroup.Item><strong>Recorded Time:</strong> {time}</ListGroup.Item>}
+              <ListGroup.Item>
+                <strong>When:</strong> {eventTime}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <strong>Distance:</strong> {run.distance} km
+              </ListGroup.Item>
+              {time && (
+                <ListGroup.Item>
+                  <strong>Recorded Time:</strong> {time}
+                </ListGroup.Item>
+              )}
             </ListGroup>
             <JoinButton runType={type} joinStatus={joinStatus} join={join} />
           </div>

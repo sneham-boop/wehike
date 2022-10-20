@@ -20,7 +20,7 @@ export default function Profile() {
   const user = useRecoilValue(userState);
   const runnerRuns = useRecoilValue(runnerRunsState);
   const plannerRuns = useRecoilValue(plannerRunsState);
-  const { joinRun, canJoinRun } = useAppData();
+  const { joinRun, canJoinRun, pastEvent } = useAppData();
   const [runData, setRunData] = useState({ distance: 0, minutes: 0, count: 0 });
 
   const showRunnersRuns = (runs, type) => {
@@ -45,10 +45,10 @@ export default function Profile() {
     let distance = 0,
       minutes = 0,
       count = 0;
-    const today = new Date();
     for (const key in runnerRuns) {
       const eventDate = new Date(runnerRuns[key].date);
-      if (eventDate < today) {
+      
+      if (pastEvent(eventDate)) {
         distance += parseInt(runnerRuns[key].distance);
         minutes += parseInt(runnerRuns[key].time);
         count += 1;
