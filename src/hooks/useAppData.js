@@ -177,7 +177,7 @@ export default function useAppData() {
     try {
       const registerUserResponse = await axios({
         method: "post",
-        url: "/api/users",
+        url: "https://werun-server.herokuapp.com/api/users",
         data: {
           name,
           email,
