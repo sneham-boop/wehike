@@ -41,19 +41,22 @@ export default function useAppData() {
     Promise.all([axios.get("https://werun-server.herokuapp.com/api/runs")])
       .then((response) => {
         const { runs } = response[0].data;
-        console.log(runs);
         setRuns(runs);
       })
       .catch((error) => {
         console.log(error);
-     });
+      });
   }, []);
 
   useEffect(() => {
     if (user) {
       Promise.all([
-        axios.get(`https://werun-server.herokuapp.com/api/runs/runner/${user.id}`),
-        axios.get(`https://werun-server.herokuapp.com/api/runs/planner/${user.id}`),
+        axios.get(
+          `https://werun-server.herokuapp.com/api/runs/runner/${user.id}`
+        ),
+        axios.get(
+          `https://werun-server.herokuapp.com/api/runs/planner/${user.id}`
+        ),
       ])
         .then((response) => {
           const { runnerRuns } = response[0].data;
@@ -175,7 +178,7 @@ export default function useAppData() {
     planner,
   }) {
     try {
-      const registerUserResponse = await axios({
+      const { data, status } = await axios({
         method: "post",
         url: "https://werun-server.herokuapp.com/api/users",
         data: {
@@ -189,9 +192,14 @@ export default function useAppData() {
           planner,
         },
       });
-      const { user } = registerUserResponse.data;
-      if (registerUserResponse.status !== 200) return false;
 
+      const { user: userArray, message, error } = data;
+
+      // Unsuccessful
+      if (status !== 200 || !userArray || error) return false;
+
+      // Success
+      const user = userArray[0];
       setUser(user);
       return true;
     } catch (error) {
