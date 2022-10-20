@@ -28,7 +28,7 @@ export default function JoinButton(props) {
       {runType === "available" && (
         <button
           type="button"
-          class="join-button"
+          className="join-button"
           onClick={checkLoginStatus}
           disabled={buttonStatus}
         >

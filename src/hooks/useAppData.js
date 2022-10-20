@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { atom, useRecoilState } from "recoil";
+import { atom, useRecoilState, useSetRecoilState} from "recoil";
 import { recoilPersist } from "recoil-persist";
 
 // Used to persist global app state after manual refreshes.
@@ -32,9 +32,9 @@ export const plannerRunsState = atom({
 });
 
 export default function useAppData() {
-  const [runs, setRuns] = useRecoilState(runsState);
+  const setRuns = useSetRecoilState(runsState);
   const [runnerRuns, setRunnerRuns] = useRecoilState(runnerRunsState);
-  const [plannerRuns, setPlannerRuns] = useRecoilState(plannerRunsState);
+  const setPlannerRuns = useSetRecoilState(plannerRunsState);
   const [user, setUser] = useRecoilState(userState);
 
   useEffect(() => {
@@ -108,7 +108,7 @@ export default function useAppData() {
     return axios
       .post("https://werun-server.herokuapp.com/api/register", { runner_id, run_id })
       .then((response) => {
-        const { user_run, message } = response.data;
+        const { user_run } = response.data;
 
         if (user_run) return true;
       })
@@ -193,7 +193,7 @@ export default function useAppData() {
         },
       });
 
-      const { user: userArray, message, error } = data;
+      const { user: userArray, error } = data;
 
       // Unsuccessful
       if (status !== 200 || !userArray || error) return false;

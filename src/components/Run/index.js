@@ -9,7 +9,7 @@ import ShowRunInfo from "../ShowRunInfo";
 
 export default function Run(props) {
   const { run, type, canJoinRun, join } = props;
-  const [joinStatus, setJoinStatus] = useState(canJoinRun(run.id) || false);
+  const joinStatus= canJoinRun(run.id) || false;
   const [time, setTime] = useState("");
   const [eventTime, setEventTime] = useState("");
 

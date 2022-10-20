@@ -24,9 +24,11 @@ export default function Map() {
             each run. Click to go to the run. You can also see a full list
             below.
           </p>
-          <a onClick={handleClick}>
-            <span className="material-symbols-rounded">expand_more</span>
-          </a>
+
+          <span className="material-symbols-rounded" onClick={handleClick}>
+            expand_more
+          </span>
+
           <p>
             Can't find a run near you? Plan one <Link to="/create">here</Link>.
           </p>

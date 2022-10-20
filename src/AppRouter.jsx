@@ -9,7 +9,6 @@ import App from "./App";
 
 import {
   createRoutesFromElements,
-  createBrowserRouter,
   createHashRouter,
   Route,
 } from "react-router-dom";
@@ -19,7 +18,6 @@ export const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Homepage />} />
-      {/* <Route path="/werun/" nelement={<Homepage />} /> */}
       <Route path="/profile" element={<Profile />} />
       <Route path="/runs" element={<FindRun />} />
       <Route path="/register" element={<RegisterUser />} />
