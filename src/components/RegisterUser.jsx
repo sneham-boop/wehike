@@ -87,7 +87,7 @@ export default function RegisterUser() {
             from all over Canada.
           </Form.Text>
         </div>
-        <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
+        <FloatingLabel controlId="name" label="Name" className="mb-3">
           <Form.Control
             required
             type="text"
@@ -101,7 +101,7 @@ export default function RegisterUser() {
             Enter your name.
           </Form.Control.Feedback>
         </FloatingLabel>
-        <FloatingLabel controlId="floatingInput" label="Email" className="mb-3">
+        <FloatingLabel controlId="email" label="Email" className="mb-3">
           <Form.Control
             required
             name="email"
@@ -152,7 +152,7 @@ export default function RegisterUser() {
           </Col>
           <Col>
             <FloatingLabel
-              controlId="floatingInput"
+              controlId="age"
               label="Age"
               className="mb-3"
             >
