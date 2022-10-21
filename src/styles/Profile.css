@@ -169,20 +169,4 @@ main {
     flex-direction: column;
    
   }
-
-  .run {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-    padding-left: 10px;
-  }
-
-  .run-image {
-    height: 150px;
-    width: 150px;
-    margin-left: 10%;
-    margin-top: 5%;
-    padding: 0
-  }
- 
 }

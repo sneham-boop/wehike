@@ -56,3 +56,46 @@
   height: 5em;
   margin-bottom: 2em;
 }
+
+@media screen and (max-width: 1280px) {
+  #find-run-page {
+    margin-top: 3em;
+  }
+
+  #available-runs h2 {
+    font-size: 45px;
+    font-weight: 800;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #find-run-page {
+    gap: 2em;
+  }
+
+  #available-runs {
+    padding: 1em 2em;
+    width: 95vw;
+  }
+
+  #available-runs h2 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #find-run-page {
+    margin-top: 0;
+    gap: 0.5em;
+  }
+  #available-runs h2 {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #available-runs p {
+    text-align: center;
+    font-size: 18px;
+  }
+}

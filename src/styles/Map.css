@@ -25,7 +25,6 @@
 .map-info p {
   font-size: 20px;
   font-weight: 300;
-  
 }
 
 .map-info p a {
@@ -56,4 +55,46 @@
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.263);
   box-shadow: 0 0 5px lightgrey;
+}
+
+@media screen and (max-width: 1280px) {
+  .map-container {
+    height: 60vh;
+  }
+
+  .map-info h2 {
+    font-size: 40px;
+  }
+
+  .map-info p {
+    font-size: 18px;
+  }
+
+  .map-info .material-symbols-rounded {
+    font-size: 100px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .map-container {
+    flex-direction: column;
+    height: 75vh;
+    padding: 0 3em;
+  }
+  .map {
+    height: 50vh;
+  }
+
+  .map-info {
+    width: 90vw;
+  }
+  .map-info .material-symbols-rounded {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .map {
+    height: 35vh;
+  }
 }
