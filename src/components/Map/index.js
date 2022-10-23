@@ -16,7 +16,7 @@ export default function Map() {
 
   return (
     <>
-      <div className="map-container" style={{ height: "85vh", width: "100%" }}>
+      <div className="map-container" >
         <section className="map-info">
           <h2>Search</h2>
           <p>
