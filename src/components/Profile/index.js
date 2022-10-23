@@ -106,12 +106,12 @@ export default function Profile() {
           fill
         >
           <Tab eventKey="attended" title="Attended">
-            <section className="runs-tab">
+            <section className="runs-tab runs-container">
               {runnerRuns && showRunnersRuns(runnerRuns, "attended")}
             </section>
           </Tab>
           <Tab eventKey="planned" title="Planned">
-            <section className="runs-tab">
+            <section className="runs-tab runs-container">
               {plannerRuns && showRunnersRuns(plannerRuns, "planned")}
             </section>
           </Tab>

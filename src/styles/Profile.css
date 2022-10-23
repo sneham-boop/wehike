@@ -54,7 +54,6 @@ main {
   color: #d83b01;
 }
 
-
 .profile-welcome {
   display: flex;
   flex-direction: row;
@@ -93,7 +92,13 @@ main {
 
 .profile-stats {
   font-family: "Krub", sans-serif;
+  width: 70rem;
 }
+
+.profile-stats .run {
+  width: 100%;
+}
+
 .profile-stats button {
   font-weight: 500;
   color: #495057;
@@ -108,6 +113,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  align-items: center;
 }
 
 .empty-runs-container {
@@ -118,7 +124,7 @@ main {
   gap: 2em;
 }
 
-.empty-runs-container h3{
+.empty-runs-container h3 {
   font-weight: 300;
   text-align: center;
 }
@@ -136,22 +142,26 @@ main {
   border: 0.5px solid #3e363e;
 }
 
+@media screen and (max-width: 1280px) {
+  .profile-stats {
+    width: 90%;
+  }
+}
 
 @media screen and (max-width: 600px) {
-
   .profile-header {
-   width: 95%;
-   height: 20%;
-   flex-wrap: wrap;
-   font-size: 10px;
-   flex-direction: row;
+    width: 95%;
+    height: 20%;
+    flex-wrap: wrap;
+    font-size: 10px;
+    flex-direction: row;
   }
   .profile-pic {
-   height: 150px;
-   width: 150px;
-   margin: 5px;
+    height: 150px;
+    width: 150px;
+    margin: 5px;
   }
- 
+
   .profile-info tbody {
     font-size: 20px;
   }
@@ -167,6 +177,5 @@ main {
   .profile-stats {
     display: flex;
     flex-direction: column;
-   
   }
 }
