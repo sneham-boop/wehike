@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function JoinButton(props) {
   const { runType, joinStatus, join } = props;
   const [text, setText] = useState("Join");
+  const [symbol, setSymbol] = useState("add_circle");
   const [buttonStatus, setButtonStatus] = useState(false);
   const user = useRecoilValue(userState);
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ export default function JoinButton(props) {
   useEffect(() => {
     if (!joinStatus) {
       setText("Already joined");
+      setSymbol("done");
       setButtonStatus(true);
     }
   }, []);
@@ -32,7 +34,8 @@ export default function JoinButton(props) {
           onClick={checkLoginStatus}
           disabled={buttonStatus}
         >
-          {text}
+          <span className="button-text">{text}</span>
+          <span className="material-symbols-rounded small-view">{symbol}</span>
         </button>
       )}
     </>
