@@ -33,13 +33,13 @@ export default function FindRun() {
   const showAvailableRuns = (runs, type) => {
     return runs.map((run) => {
       return (
-          <Run
-            key={run.id}
-            run={run}
-            type={type}
-            join={() => join(user.id, run.id)}
-            canJoinRun={canJoinRun}
-          />
+        <Run
+          key={run.id}
+          run={run}
+          type={type}
+          join={() => join(user.id, run.id)}
+          canJoinRun={canJoinRun}
+        />
       );
     });
   };
@@ -58,7 +58,9 @@ export default function FindRun() {
             with weRun and plan your own.
           </p>
         </section>
-        {runs && showAvailableRuns(runs, "available")}
+        <section className="runs-container">
+          {runs && showAvailableRuns(runs, "available")}
+        </section>
       </section>
       {user && (
         <JoiningStatus

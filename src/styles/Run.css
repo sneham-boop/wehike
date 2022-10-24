@@ -156,9 +156,10 @@
     flex-direction: column;
     box-shadow: none;
     border: none;
-    width: auto;
+    width: 18rem;
     padding: 0;
     gap: 1em;
+    justify-self: center;
   }
 
   .run-heading .run-id {
@@ -175,7 +176,6 @@
   .run-image {
     height: 18rem;
     box-shadow: 0 0 5px gray;
-    border: 1px solid rgba(0, 0, 0, 0.125);
   }
 
   .run-body p {
@@ -193,14 +193,15 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 703px) {
   .run {
     display: flex;
     flex-direction: column;
+    width: auto;
   }
 
   .run-image {
-    height: 18rem;
+    height: 75vw;
   }
 
   .join-button {
