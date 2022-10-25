@@ -1,36 +1,36 @@
 .profile-section {
-  padding-bottom: 3em;
-}
-
-.profile-pic {
-  height: 330px;
-  border-radius: 5px;
-}
-
-main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 3em 10em;
+  gap: 2em;
 }
 
 .profile-header {
-  width: 70rem;
+  width: 100%;
+  height: 400px;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  gap: 1em;
   border: 1px solid lightgrey;
-  margin: 3em 0;
-  padding: 1.5em;
-  border-radius: 5px;
+  padding: 2em;
+  border-radius: 0.375rem;
   font-family: "Krub", sans-serif;
   box-shadow: 0 0 5px lightgrey;
 }
 
+.profile-pic {
+  height: 100%;
+  border-radius: 0.375rem;
+}
+
 .profile-info {
-  width: 63%;
+  /* width: 63%; */
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  justify-content: space-around;
+  /* gap: 25px; */
 }
 
 .profile-info h1 {
@@ -59,6 +59,7 @@ main {
   flex-direction: row;
   justify-content: space-between;
 }
+
 .profile-welcome .profile-actions {
   display: flex;
   flex-direction: column;
@@ -92,7 +93,7 @@ main {
 
 .profile-stats {
   font-family: "Krub", sans-serif;
-  width: 70rem;
+  width: 100%;
 }
 
 .profile-stats .run {
@@ -143,32 +144,76 @@ main {
 }
 
 @media screen and (max-width: 1280px) {
-  .profile-stats {
-    width: 90%;
+  .profile-section {
+    padding: 3em 5em;
+  }
+  .profile-header {
+    height: 400px;
+  }
+  .profile-info h1,
+  .profile-info tbody {
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .profile-header {
+    /* flex-direction: column-reverse; */
+    /* height: auto; */
+    /* align-items: center; */
+    height: 300px;
+    padding: 1.5em;
+  }
+
+  .profile-pic {
+    /* width: 25vw; */
+    border-radius: 0.375rem;
+  }
+
+  .profile-info h1 {
+    font-size: 45px;
+  }
+
+  .profile-info p {
+    margin: -15px -10px 0 0;
+    font-size: 25px;
+  }
+
+  .profile-info h4 {
+    font-weight: 200;
+    font-size: 15px;
+    margin: 0;
+    color: gray;
+  }
+
+  .profile-info .unit {
+    font-size: 25px;
+  }
+
+  .profile-info tbody {
+    font-size: 40px;
+  }
+
+  .profile-info th {
+    font-size: 15px;
   }
 }
 
 @media screen and (max-width: 820px) {
+  .profile-section {
+    padding: 3em 2em;
+  }
+
   .profile-stats .run {
     width: auto;
   }
-}
 
-@media screen and (max-width: 600px) {
-  .profile-header {
-    width: 95%;
-    height: 20%;
-    flex-wrap: wrap;
-    font-size: 10px;
-    flex-direction: row;
-  }
-  .profile-pic {
-    height: 150px;
-    width: 150px;
-    margin: 5px;
+  .profile-info h1 {
+    font-size: 35px;
   }
 
-  .profile-info tbody {
+  .profile-info p {
+    margin: -15px -10px 0 0;
     font-size: 20px;
   }
 
@@ -176,12 +221,53 @@ main {
     font-size: 20px;
   }
 
-  .profile-info h1 {
+  .profile-info tbody {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 715px) {
+  .profile-header {
+    height: auto;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 0;
+  }
+  .profile-pic {
+    height: 35vh;
+    margin: 5px;
+  }
+
+  .profile-welcome {
+    flex-direction: column-reverse;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .profile-welcome .profile-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .profile-info h4 {
+    align-self: center;
+  }
+
+  .profile-info tbody {
     font-size: 50px;
   }
 
+  .profile-info h1 {
+    font-size: 50px;
+  }
+  .profile-info {
+    gap: 1em;
+  }
   .profile-stats {
     display: flex;
     flex-direction: column;
   }
+}
+
+@media screen and (max-width: 500px) {
 }
