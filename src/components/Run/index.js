@@ -46,6 +46,7 @@ export default function Run(props) {
     <>
       <section className="run">
         <img
+          id={`run-${run.id}`}
           alt="Shows running space"
           className="run-image"
           src={`https://werun-server.herokuapp.com/api/runs/image/${run.id}`}
@@ -53,11 +54,7 @@ export default function Run(props) {
 
         <div className="run-body">
           <div className="run-heading">
-            {type === "available" && (
-              <span id={`run-${run.id}`} className="run-id">
-                {run.id}
-              </span>
-            )}
+            {type === "available" && <span className="run-id">{run.id}</span>}
             <h3>{run.name}</h3>
 
             <OverlayTrigger

@@ -157,16 +157,16 @@
 }
 
 @media screen and (max-width: 991px) {
+  .profile-section {
+    padding: 3em 2em;
+  }
+
   .profile-header {
-    /* flex-direction: column-reverse; */
-    /* height: auto; */
-    /* align-items: center; */
     height: 300px;
     padding: 1.5em;
   }
 
   .profile-pic {
-    /* width: 25vw; */
     border-radius: 0.375rem;
   }
 
@@ -200,10 +200,6 @@
 }
 
 @media screen and (max-width: 820px) {
-  .profile-section {
-    padding: 3em 2em;
-  }
-
   .profile-stats .run {
     width: auto;
   }
@@ -267,7 +263,4 @@
     display: flex;
     flex-direction: column;
   }
-}
-
-@media screen and (max-width: 500px) {
 }
