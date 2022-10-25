@@ -92,7 +92,13 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
     gap: 2em;
-    padding: 0 3em;
+    padding: 0 1em;
+  }
+}
+
+@media screen and (max-width: 715px) {
+  .runs-container {
+    grid-template-columns: auto;
   }
 }
 
