@@ -6,6 +6,7 @@ import JoinButton from "./JoinButton";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import ShowRunInfo from "../ShowRunInfo";
+import AddTimeButton from "./AddTimeButton";
 
 export default function Run(props) {
   const { run, type, canJoinRun, join, pastEvent } = props;
@@ -88,6 +89,7 @@ export default function Run(props) {
               )}
             </ListGroup>
             <JoinButton runType={type} joinStatus={joinStatus} join={join} />
+            <AddTimeButton />
           </div>
         </div>
       </section>
