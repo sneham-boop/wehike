@@ -1,8 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Homepage.css";
-import logo from "../images/large-logo.svg";
-import squareLogo from "../images/rectangle-logo.svg";
 import { Link } from "react-router-dom";
 
 export default function Homepage() {
@@ -29,8 +27,6 @@ export default function Homepage() {
           </div>
         </div>
         <div className="logo-container">
-          <img src={logo} className="logo" alt="logo" />
-          <img src={squareLogo} className="square-logo" alt="logo" />
         </div>
       </div>
     </div>
