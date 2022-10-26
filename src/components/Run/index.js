@@ -13,8 +13,10 @@ export default function Run(props) {
   const joinStatus = canJoinRun(run.id) || false;
   const [time, setTime] = useState("");
   const [eventTime, setEventTime] = useState("");
+  const [imageClass, setImageClass] = useState("run-image");
   const { pastEvent } = useAppData();
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const eventDate = new Date(run.date);
 
   const handleCloseInfoModal = () => {
     setShowInfoModal(false);
@@ -34,11 +36,12 @@ export default function Run(props) {
     if (run.time !== 0 && type === "attended") {
       setTime(`${run.time} min`);
     }
-    const eventDate = new Date(run.date);
+
     if (!pastEvent(eventDate)) {
       setEventTime(`On ${run.date} at ${run.event_time}`);
     } else {
       setEventTime(`Was on ${run.date} at ${run.event_time}`);
+      setImageClass((prev) => prev + " past-event");
     }
   }, []);
 
@@ -48,10 +51,10 @@ export default function Run(props) {
         <img
           id={`run-${run.id}`}
           alt="Shows running space"
-          className="run-image"
+          className={imageClass}
           src={`https://werun-server.herokuapp.com/api/runs/image/${run.id}`}
-        ></img>
-
+        />
+        {pastEvent(eventDate) && <p className="past-event">PAST</p>}
         <div className="run-body">
           <div className="run-heading">
             {type === "available" && <span className="run-id">{run.id}</span>}
