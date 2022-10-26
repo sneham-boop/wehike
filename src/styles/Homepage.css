@@ -38,7 +38,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: url("../images/weRun-large-logo.png") no-repeat;
+  background: url("../images/weRun-large-logo-2.png") no-repeat;
   background-size: contain;
   background-position: center;
 }
@@ -137,7 +137,8 @@
   .logo-container {
     height: 40vh;
     width: 100vw;
-    background-color: #e6795d;
+    /* background-color: #e6795d; */
+    background-color: #f87254;
   }
 
   .home-intro h2 {

@@ -51,7 +51,8 @@
   font-size: 35px;
   margin: -20px -10px 0 0;
   text-align: end;
-  color: #d83b01;
+  /* color: #d83b01; */
+  color: #f87254;
 }
 
 .profile-welcome {

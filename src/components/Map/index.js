@@ -4,6 +4,7 @@ import { useRecoilValue } from "recoil";
 import { userCoordinatesAtom } from "../../hooks/userCoords";
 import { Link } from "react-router-dom";
 import DefaultMap from "./DefaultMap";
+import expand from "../../images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
 
 export default function Map() {
   const center = useRecoilValue(userCoordinatesAtom);
@@ -25,10 +26,10 @@ export default function Map() {
             below.
           </p>
 
-          <span className="material-symbols-rounded" onClick={goToRunsList}>
+          {/* <span className="material-symbols-rounded" onClick={goToRunsList}>
             expand_more
-          </span>
-
+          </span> */}
+          <img className="material-symbols-rounded" src={expand} onClick={goToRunsList}/>
           <p>
             Can't find a run near you? Plan one <Link to="/create">here</Link>.
           </p>
