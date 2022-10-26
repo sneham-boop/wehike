@@ -62,7 +62,7 @@
 .status-spinner {
   width: 5em;
   height: 5em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 @media screen and (max-width: 1280px) {
@@ -86,6 +86,10 @@
   #available-runs h2 {
     font-size: 40px;
   }
+  .joining-status-header .modal-title {
+    font-size: 25px;
+    text-align: center;
+  }
 }
 @media screen and (max-width: 820px) {
   .runs-container {
@@ -93,6 +97,11 @@
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
     gap: 2em;
     padding: 0 1em;
+  }
+
+  .joining-status-header .modal-title {
+    font-size: 20px;
+    text-align: center;
   }
 }
 
@@ -115,5 +124,20 @@
   #available-runs p {
     text-align: center;
     font-size: 18px;
+  }
+
+  .joining-status-message p {
+    font-size: 16px;
+    padding: 0 1em;
+  }
+
+  .joining-status-header {
+    align-self: center;
+    flex-direction: column;
+    gap: 0.2em;
+  }
+
+  img:last-child {
+    display: none;
   }
 }

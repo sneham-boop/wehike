@@ -14,7 +14,7 @@ export default function JoiningStatus(props) {
       let timer = setTimeout(() => {
         setJoinButtonPressed(false);
         navigate("/profile");
-      }, 3000);
+      }, 3900000);
       return () => clearTimeout(timer);
     }
   }, [joinButtonPressed]);
@@ -38,6 +38,7 @@ export default function JoiningStatus(props) {
         show={joinButtonPressed}
         backdrop="static"
         keyboard={false}
+        centered
       >
         <Modal.Header className="joining-status-header">
           {logoImage}
