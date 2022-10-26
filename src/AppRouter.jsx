@@ -13,6 +13,7 @@ import {
   Route,
 } from "react-router-dom";
 import ShowRunInfo from "./components/ShowRunInfo";
+import FAQs from "./components/FAQs";
 
 export const router = createHashRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ export const router = createHashRouter(
       <Route path="/create" element={<RegisterRun />}/>
       <Route path="/signin" element={<SignIn />} />
       <Route path="/run-info" element={<ShowRunInfo />} />
+      <Route path="/faq" element={<FAQs />} />
     </Route>
   )
 );

@@ -47,6 +47,9 @@ export default function Navigation() {
             </Link>
           </Nav>
           <Nav pullright="true">
+              <Link className="nav-link" to="/faq">
+                FAQs
+              </Link>
             {user === null && (
               <Link className="nav-link" to="/signin">
                 Sign In
