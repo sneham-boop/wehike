@@ -26,15 +26,17 @@ export default function Profile() {
   const showRunnersRuns = (runs, type) => {
     const runsArray = Object.values(runs);
     if (runsArray.length === 0) return <EmptyRuns type={type} />;
-    return runsArray.map((run) => (
-      <Run
+    return runsArray.map((run) => {
+      const eventDate = new Date(run.date);
+      return <Run
         key={run.id}
         run={run}
         type={type}
         join={joinRun}
         canJoinRun={canJoinRun}
+        pastEvent={pastEvent(eventDate)}
       />
-    ));
+  });
   };
 
   const profilePicture = (

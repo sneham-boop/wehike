@@ -6,17 +6,15 @@ import JoinButton from "./JoinButton";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import ShowRunInfo from "../ShowRunInfo";
-import useAppData from "../../hooks/useAppData";
 
 export default function Run(props) {
-  const { run, type, canJoinRun, join } = props;
+  const { run, type, canJoinRun, join, pastEvent } = props;
   const joinStatus = canJoinRun(run.id) || false;
   const [time, setTime] = useState("");
   const [eventTime, setEventTime] = useState("");
   const [imageClass, setImageClass] = useState("run-image");
-  const { pastEvent } = useAppData();
   const [showInfoModal, setShowInfoModal] = useState(false);
-  const eventDate = new Date(run.date);
+  
 
   const handleCloseInfoModal = () => {
     setShowInfoModal(false);
@@ -37,7 +35,7 @@ export default function Run(props) {
       setTime(`${run.time} min`);
     }
 
-    if (!pastEvent(eventDate)) {
+    if (!pastEvent) {
       setEventTime(`On ${run.date} at ${run.event_time}`);
     } else {
       setEventTime(`Was on ${run.date} at ${run.event_time}`);
@@ -54,7 +52,7 @@ export default function Run(props) {
           className={imageClass}
           src={`https://werun-server.herokuapp.com/api/runs/image/${run.id}`}
         />
-        {pastEvent(eventDate) && <p className="past-event">PAST</p>}
+        {pastEvent && <p className="past-event">PAST</p>}
         <div className="run-body">
           <div className="run-heading">
             {type === "available" && <span className="run-id">{run.id}</span>}

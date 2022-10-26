@@ -11,7 +11,7 @@ import "../../styles/FindRun.css";
 export default function FindRun() {
   const runs = useRecoilValue(runsState);
   const user = useRecoilValue(userState);
-  const { joinRun, canJoinRun } = useAppData();
+  const { joinRun, canJoinRun, pastEvent } = useAppData();
   const navigate = useNavigate();
   const [joinButtonPressed, setJoinButtonPressed] = useState(false);
 
@@ -32,8 +32,10 @@ export default function FindRun() {
 
   const showAvailableRuns = (runs, type) => {
     return runs.map((run) => {
+      const eventDate = new Date(run.date);
+      const past= pastEvent(eventDate);
       return (
-        <Run
+        past && <Run
           key={run.id}
           run={run}
           type={type}
