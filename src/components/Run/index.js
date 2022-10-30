@@ -11,11 +11,10 @@ import AddTimeButton from "./AddTimeButton";
 export default function Run(props) {
   const { run, type, canJoinRun, join, pastEvent } = props;
   const joinStatus = canJoinRun(run.id) || false;
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState(run.time);
   const [eventTime, setEventTime] = useState("");
   const [imageClass, setImageClass] = useState("run-image");
   const [showInfoModal, setShowInfoModal] = useState(false);
-  
 
   const handleCloseInfoModal = () => {
     setShowInfoModal(false);
@@ -82,14 +81,16 @@ export default function Run(props) {
               <ListGroup.Item>
                 <strong>Distance:</strong> {run.distance} km
               </ListGroup.Item>
-              {time && (
+              {time !== 0 && type === "attended" && (
                 <ListGroup.Item>
                   <strong>Recorded Time:</strong> {time}
                 </ListGroup.Item>
               )}
             </ListGroup>
             <JoinButton runType={type} joinStatus={joinStatus} join={join} />
-            <AddTimeButton />
+            {type === "attended" && time === 0 && pastEvent && (
+              <AddTimeButton run={run} />
+            )}
           </div>
         </div>
       </section>

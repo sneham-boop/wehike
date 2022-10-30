@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import GoogleMapReact from "google-map-react";
 import Markers from "./Markers";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { runsState } from "../../hooks/useAppData";
+import { runsState } from "../../hooks/useRuns";
 import "../../styles/Map.css";
 import { userCoordinatesAtom } from "../../hooks/userCoords";
 

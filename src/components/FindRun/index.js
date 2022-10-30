@@ -4,7 +4,8 @@ import Map from "../Map";
 import JoiningStatus from "../JoiningStatus";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { userState, runsState } from "../../hooks/useAppData";
+import { userState } from "../../hooks/useAppData";
+import { runsState } from "../../hooks/useRuns";
 import useAppData from "../../hooks/useAppData";
 import "../../styles/FindRun.css";
 

@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { atom, useRecoilState, useSetRecoilState} from "recoil";
+import { atom, useRecoilState, useSetRecoilState } from "recoil";
 import { recoilPersist } from "recoil-persist";
+import { runnerRunsState, plannerRunsState, runsState } from "./useRuns";
 
 // Used to persist global app state after manual refreshes.
 // See key in local storage for browser
@@ -13,62 +14,12 @@ export const userState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const runsState = atom({
-  key: "runsState",
-  default: null,
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const runnerRunsState = atom({
-  key: "runnerRunsState",
-  default: null,
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const plannerRunsState = atom({
-  key: "plannerRunsState",
-  default: null,
-  effects_UNSTABLE: [persistAtom],
-});
 
 export default function useAppData() {
   const setRuns = useSetRecoilState(runsState);
   const [runnerRuns, setRunnerRuns] = useRecoilState(runnerRunsState);
   const setPlannerRuns = useSetRecoilState(plannerRunsState);
   const [user, setUser] = useRecoilState(userState);
-
-  useEffect(() => {
-    Promise.all([axios.get("https://werun-server.herokuapp.com/api/runs")])
-      .then((response) => {
-        const { runs } = response[0].data;
-        setRuns(runs);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  useEffect(() => {
-    if (user) {
-      Promise.all([
-        axios.get(
-          `https://werun-server.herokuapp.com/api/runs/runner/${user.id}`
-        ),
-        axios.get(
-          `https://werun-server.herokuapp.com/api/runs/planner/${user.id}`
-        ),
-      ])
-        .then((response) => {
-          const { runnerRuns } = response[0].data;
-          const { plannerRuns } = response[1].data;
-          setRunnerRuns(runnerRuns);
-          setPlannerRuns(plannerRuns);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  }, [user]);
 
   function login(email, password) {
     return axios
@@ -106,7 +57,10 @@ export default function useAppData() {
 
   function joinRun(runner_id, run_id) {
     return axios
-      .post("https://werun-server.herokuapp.com/api/register", { runner_id, run_id })
+      .post("https://werun-server.herokuapp.com/api/register", {
+        runner_id,
+        run_id,
+      })
       .then((response) => {
         const { user_run } = response.data;
 
@@ -211,6 +165,32 @@ export default function useAppData() {
     const today = new Date();
     if (date < today) return true;
     return false;
+  };
+
+  async function updateRunTime({ run_id, runner_id, time }) {
+    try {
+      console.log("In update run time", time);
+      const { data, status } = await axios({
+        method: "put",
+        url: `https://werun-server.herokuapp.com/api/runs/runner/${runner_id}`,
+        data: {
+          run_id,
+          runner_id,
+          time,
+        },
+      });
+
+      const { run, error } = data;
+      
+
+      // Unsuccessful
+      if (status !== 200 || !run || error) return false;
+
+      // Success
+      return run.time;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return {
@@ -220,6 +200,7 @@ export default function useAppData() {
     canJoinRun,
     createRun,
     registerUser,
-    pastEvent
+    pastEvent,
+    updateRunTime
   };
 }

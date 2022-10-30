@@ -4,16 +4,37 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../hooks/useAppData";
+import useAppData from "../../hooks/useAppData";
 import { useNavigate } from "react-router-dom";
+import JoiningStatus from "../JoiningStatus";
 
-export default function AddTimeButton(props) {
+export default function AddTimeButton({ run }) {
   const [showModal, setShowModal] = useState(false);
+  const [joinButtonPressed, setJoinButtonPressed] = useState(false);
+  const [time, setTime] = useState(run.time);
+  const { updateRunTime } = useAppData();
+  const user = useRecoilValue(userState);
+  const navigate = useNavigate();
 
   const handleCloseModal = () => {
     setShowModal(false);
   };
   const handleShowModal = () => {
     setShowModal(true);
+  };
+
+  const handleSubmit = () => {
+    updateRunTime({ run_id: run.id, runner_id: user.id, time: time }).then(
+      (response) => {
+        if (response) {
+          console.log("Time updated successfully.", time);
+          setJoinButtonPressed(true);
+          handleCloseModal();
+          // navigate("/profile");
+        }
+        !response && console.log("No time value entered.");
+      }
+    );
   };
 
   return (
@@ -44,15 +65,26 @@ export default function AddTimeButton(props) {
               <Form.Label>
                 How did you do on this run? Enter your time below!
               </Form.Label>
-              <Form.Control type="email" placeholder="00:00 min" size="lg" />
+              <Form.Control
+                type="text"
+                placeholder="00:00 min"
+                size="lg"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+              />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" onClick={handleSubmit}>
               Submit
             </Button>
           </Form>
         </Modal.Body>
       </Modal>
+      <JoiningStatus
+        joinButtonPressed={joinButtonPressed}
+        setJoinButtonPressed={setJoinButtonPressed}
+        text="PLANNING"
+      />
     </>
   );
 }

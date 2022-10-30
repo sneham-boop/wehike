@@ -7,11 +7,8 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Table from "react-bootstrap/Table";
 import "../../styles/Profile.css";
-import {
-  userState,
-  runnerRunsState,
-  plannerRunsState,
-} from "../../hooks/useAppData";
+import { userState } from "../../hooks/useAppData";
+import { runnerRunsState, plannerRunsState } from "../../hooks/useRuns";
 import { useRecoilValue } from "recoil";
 import useAppData from "../../hooks/useAppData";
 import profilePhoto from "../../images/profile-photo.jpeg";
@@ -28,15 +25,17 @@ export default function Profile() {
     if (runsArray.length === 0) return <EmptyRuns type={type} />;
     return runsArray.map((run) => {
       const eventDate = new Date(run.date);
-      return <Run
-        key={run.id}
-        run={run}
-        type={type}
-        join={joinRun}
-        canJoinRun={canJoinRun}
-        pastEvent={pastEvent(eventDate)}
-      />
-  });
+      return (
+        <Run
+          key={run.id}
+          run={run}
+          type={type}
+          join={joinRun}
+          canJoinRun={canJoinRun}
+          pastEvent={pastEvent(eventDate)}
+        />
+      );
+    });
   };
 
   const profilePicture = (
@@ -49,7 +48,7 @@ export default function Profile() {
       count = 0;
     for (const key in runnerRuns) {
       const eventDate = new Date(runnerRuns[key].date);
-      
+
       if (pastEvent(eventDate)) {
         distance += parseInt(runnerRuns[key].distance);
         minutes += parseInt(runnerRuns[key].time);

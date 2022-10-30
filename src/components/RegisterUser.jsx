@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 import useAppData from "../hooks/useAppData";
 
 export default function RegisterUser() {
-  
   const { registerUser } = useAppData();
 
   const [userData, setUserData] = useState({
@@ -76,10 +75,7 @@ export default function RegisterUser() {
 
   return (
     <div className="forms">
-      <Form
-        className="form-container"
-        onSubmit={handleSubmit}
-      >
+      <Form className="form-container" onSubmit={handleSubmit}>
         <div className="form-container-text">
           <Form.Text as="h3">HI THERE, RUNNER!</Form.Text>
           <Form.Text as="p">
@@ -151,11 +147,7 @@ export default function RegisterUser() {
             </FloatingLabel>
           </Col>
           <Col>
-            <FloatingLabel
-              controlId="age"
-              label="Age"
-              className="mb-3"
-            >
+            <FloatingLabel controlId="age" label="Age" className="mb-3">
               <Form.Control
                 required
                 type="text"
@@ -202,7 +194,7 @@ export default function RegisterUser() {
             onChange={handleCheckboxChange}
           />
         </Form.Group>
-       
+
         <Button variant="custom" type="submit" className="btn">
           Submit
         </Button>
