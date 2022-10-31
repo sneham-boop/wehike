@@ -25,11 +25,7 @@ export default function Map() {
             each run. Click to go to the run. You can also see a full list
             below.
           </p>
-
-          {/* <span className="material-symbols-rounded" onClick={goToRunsList}>
-            expand_more
-          </span> */}
-          <img className="material-symbols-rounded" src={expand} onClick={goToRunsList}/>
+          <img alt="Icon to take user to the available runs" className="material-symbols-rounded" src={expand} onClick={goToRunsList}/>
           <p>
             Can't find a run near you? Plan one <Link to="/create">here</Link>.
           </p>

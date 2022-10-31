@@ -131,7 +131,7 @@ export default function RegisterRun() {
         onSubmit={handleSubmit}
       >
         <div className="form-container-text">
-          <Form.Text as="h3">Create a Run</Form.Text>
+          <Form.Text as="h3">Create a Run!</Form.Text>
           <Form.Text as="p">
             Don't see a run event near you? Just tell us where and when and the
             rest is on us.
