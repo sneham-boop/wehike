@@ -8,6 +8,7 @@ import useRuns from "../../hooks/useRuns";
 import { useRecoilValue } from "recoil";
 import useAppData from "../../hooks/useAppData";
 import profilePhoto from "../../images/profile-photo.jpeg";
+import Stats from "./Stats";
 
 export default function Profile() {
   const user = useRecoilValue(userState);
@@ -17,7 +18,7 @@ export default function Profile() {
   const [runData, setRunData] = useState({ distance: 0, minutes: 0, count: 0 });
 
   const profilePicture = (
-    <img className="profile-pic" src={profilePhoto} alt="icon-profile"/>
+    <img className="profile-pic" src={profilePhoto} alt="icon-profile" />
   );
 
   useEffect(() => {
@@ -34,23 +35,23 @@ export default function Profile() {
       }
     }
     setRunData({ distance, minutes, count });
-    return(()=>{
+    return () => {
       setUpdateData(false);
-    })
+    };
   }, [runnerRuns]);
 
   return (
-      <section className="profile-header">
-        <div className="profile-info">
-          <div className="profile-welcome">
-            <div>
-              <h1>Welcome!</h1>
-              {user && <p>{user.name}</p>}
-            </div>
-            <ProfileActions />
+    <section className="profile-header">
+      <div className="profile-info">
+        <div className="profile-welcome">
+          <div>
+            <h1>Welcome!</h1>
+            {user && <p>{user.name}</p>}
           </div>
-          <h4>YOU HAVE:</h4>
-          <Table size="sm">
+          <ProfileActions />
+        </div>
+        {/* <h4>YOU HAVE:</h4> */}
+        {/* <Table size="sm">
             <thead>
               <tr>
                 <th>RUN FOR</th>
@@ -64,6 +65,7 @@ export default function Profile() {
                   {runData.minutes}
                   <span className="unit">min</span>
                 </td>
+                
                 <td>
                   {runData.distance}
                   <span className="unit">km</span>
@@ -74,9 +76,10 @@ export default function Profile() {
                 </td>
               </tr>
             </tbody>
-          </Table>
-        </div>
-        {profilePicture}
-      </section>
+          </Table> */}
+        <Stats />
+      </div>
+      {profilePicture}
+    </section>
   );
 }

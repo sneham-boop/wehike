@@ -28,6 +28,7 @@
 }
 
 p.past-event {
+  font-family: "Sacramento", cursive;
   position: absolute;
   top: 50%;
   left: 159px;
@@ -36,8 +37,11 @@ p.past-event {
   font-weight: 200;
   color: white;
   background-color: #3e363e;
-  border-radius: 0.5rem;
-  padding: 0.3em;
+  border-radius: 50%;
+  padding: 0.2em 0.3em 0.3em 0.3em;
+  height: 4rem;
+  width: 4rem;
+  text-align: center;
 }
 
 .run-body {
@@ -276,7 +280,7 @@ p.past-event {
   }
 }
 
-@media screen and (max-width: 715px) {
+@media screen and (max-width: 735px) {
   .run {
     display: flex;
     flex-direction: column;

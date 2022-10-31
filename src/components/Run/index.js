@@ -54,7 +54,7 @@ export default function Run(props) {
           className={imageClass}
           src={`https://werun-server.herokuapp.com/api/runs/image/${run.id}`}
         />
-        {pastEvent && <p className="past-event">PAST</p>}
+        {pastEvent && <p className="past-event">past</p>}
         <div className="run-body">
           <div className="run-heading">
             {type === "available" && <span className="run-id">{run.id}</span>}

@@ -105,7 +105,7 @@
   }
 }
 
-@media screen and (max-width: 715px) {
+@media screen and (max-width: 735px) {
   .runs-container {
     grid-template-columns: auto;
   }
