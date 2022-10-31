@@ -8,16 +8,19 @@ import Tabs from "react-bootstrap/Tabs";
 import Table from "react-bootstrap/Table";
 import "../../styles/Profile.css";
 import { userState } from "../../hooks/useAppData";
-import { runnerRunsState, plannerRunsState } from "../../hooks/useRuns";
+import useRuns, {
+  runnerRunsState,
+  plannerRunsState,
+} from "../../hooks/useRuns";
 import { useRecoilValue } from "recoil";
 import useAppData from "../../hooks/useAppData";
 import profilePhoto from "../../images/profile-photo.jpeg";
 
 export default function Profile() {
   const user = useRecoilValue(userState);
-  const runnerRuns = useRecoilValue(runnerRunsState);
-  const plannerRuns = useRecoilValue(plannerRunsState);
   const { joinRun, canJoinRun, pastEvent } = useAppData();
+  const [updateData, setUpdateData] = useState(false);
+  const { runnerRuns, plannerRuns } = useRuns({ update: updateData });
   const [runData, setRunData] = useState({ distance: 0, minutes: 0, count: 0 });
 
   const showRunnersRuns = (runs, type) => {
@@ -33,6 +36,8 @@ export default function Profile() {
           join={joinRun}
           canJoinRun={canJoinRun}
           pastEvent={pastEvent(eventDate)}
+          setUpdateData={setUpdateData}
+          updateData={updateData}
         />
       );
     });
@@ -56,6 +61,9 @@ export default function Profile() {
       }
     }
     setRunData({ distance, minutes, count });
+    return(()=>{
+      setUpdateData(false);
+    })
   }, [runnerRuns]);
 
   return (

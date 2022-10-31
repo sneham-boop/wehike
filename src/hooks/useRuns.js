@@ -8,7 +8,6 @@ import { userState } from "./useAppData";
 // See key in local storage for browser
 const { persistAtom } = recoilPersist();
 
-
 export const runsState = atom({
   key: "runsState",
   default: null,
@@ -27,10 +26,10 @@ export const plannerRunsState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export default function useGetUsersRuns(options) {
-  const setRuns = useSetRecoilState(runsState);
+export default function useRuns(options) {
+  const [runs, setRuns] = useRecoilState(runsState);
   const [runnerRuns, setRunnerRuns] = useRecoilState(runnerRunsState);
-  const setPlannerRuns = useSetRecoilState(plannerRunsState);
+  const [plannerRuns, setPlannerRuns] = useRecoilState(plannerRunsState);
   const [user, setUser] = useRecoilState(userState);
 
   useEffect(() => {
@@ -45,7 +44,7 @@ export default function useGetUsersRuns(options) {
   }, []);
 
   useEffect(() => {
-    if (user) {
+    if (user || options.update) {
       Promise.all([
         axios.get(
           `https://werun-server.herokuapp.com/api/runs/runner/${user.id}`
@@ -64,7 +63,10 @@ export default function useGetUsersRuns(options) {
           console.log(error);
         });
     }
-  }, [user, options.timeUpdate]);
-
-  return {};
+  }, [options.update, user]);
+  return {
+    runs,
+    runnerRuns,
+    plannerRuns,
+  };
 }

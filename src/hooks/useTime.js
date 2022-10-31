@@ -12,11 +12,24 @@ export default function useTime() {
     setCurrentTime(`${hr}:${min}`);
   };
 
+  const formatTime = (date) => {
+      console.log(date);
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let ampm = hours >= 12 ? 'pm' : 'am';
+      hours = hours % 12;
+      hours = hours ? hours : 12; 
+      minutes = minutes < 10 ? '0'+minutes : minutes;
+      let strTime = hours + ':' + minutes + ' ' + ampm;
+      return strTime;
+  };
+
   useEffect(()=>{
     getCurrentTime();
   },[])
 
   return {
     currentTime,
+    formatTime
   };
 }

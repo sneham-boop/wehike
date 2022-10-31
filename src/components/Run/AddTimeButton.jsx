@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -8,7 +8,7 @@ import useAppData from "../../hooks/useAppData";
 import { useNavigate } from "react-router-dom";
 import JoiningStatus from "../JoiningStatus";
 
-export default function AddTimeButton({ run }) {
+export default function AddTimeButton({ run, update }) {
   const [showModal, setShowModal] = useState(false);
   const [joinButtonPressed, setJoinButtonPressed] = useState(false);
   const [time, setTime] = useState(run.time);
@@ -24,17 +24,17 @@ export default function AddTimeButton({ run }) {
   };
 
   const handleSubmit = () => {
-    updateRunTime({ run_id: run.id, runner_id: user.id, time: time }).then(
-      (response) => {
+    updateRunTime({ run_id: run.id, runner_id: user.id, time: time })
+      .then((response) => {
         if (response) {
-          console.log("Time updated successfully.", time);
           setJoinButtonPressed(true);
           handleCloseModal();
-          // navigate("/profile");
         }
-        !response && console.log("No time value entered.");
-      }
-    );
+      })
+      .then(() => {
+        update();
+        navigate("/profile");
+      });
   };
 
   return (
@@ -44,7 +44,8 @@ export default function AddTimeButton({ run }) {
         className="add-time-button"
         onClick={handleShowModal}
       >
-        Add Time
+        {run.time === 0 && "Add time"}
+        {run.time !== 0 && "Update time"}
       </button>
       <Modal
         className="enter-time-modal"

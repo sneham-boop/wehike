@@ -102,6 +102,10 @@ p.past-event {
   border: none;
 }
 
+.add-time-button {
+  align-self: flex-end;
+}
+
 .run-heading .detail-button:hover,
 .add-time-button:hover {
   cursor: pointer;

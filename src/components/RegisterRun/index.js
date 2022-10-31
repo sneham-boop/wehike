@@ -42,8 +42,10 @@ export default function RegisterRun() {
   const { createRun } = useAppData();
 
   const handleChange = (e) => {
+    const key = e.target.name;
+    const val = e.target.value;
     setRunData((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
+      return { ...prev, [key] : val };
     });
   };
 
@@ -74,10 +76,10 @@ export default function RegisterRun() {
           className="date-picker"
           required
           name="date"
-          selected={runData.date}
+          selected={new Date(runData.date)}
           onChange={(date) =>
             setRunData((prev) => {
-              return { ...prev, date: date };
+              return { ...prev, date: date.toDateString() };
             })
           }
           key={runData.date}
@@ -142,7 +144,7 @@ export default function RegisterRun() {
             placeholder="Name"
             name="name"
             value={runData.name}
-            onChange={handleChange}
+            onChange={(e)=>handleChange(e)}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">

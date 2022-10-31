@@ -5,12 +5,12 @@ import JoiningStatus from "../JoiningStatus";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../hooks/useAppData";
-import { runsState } from "../../hooks/useRuns";
+import useRuns, { runsState } from "../../hooks/useRuns";
 import useAppData from "../../hooks/useAppData";
 import "../../styles/FindRun.css";
 
 export default function FindRun() {
-  const runs = useRecoilValue(runsState);
+  const { runs } = useRuns({});
   const user = useRecoilValue(userState);
   const { joinRun, canJoinRun, pastEvent } = useAppData();
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ export default function FindRun() {
       const eventDate = new Date(run.date);
       const past= pastEvent(eventDate);
       return (
-        past && <Run
+        !past && <Run
           key={run.id}
           run={run}
           type={type}

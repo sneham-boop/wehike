@@ -7,11 +7,14 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import ShowRunInfo from "../ShowRunInfo";
 import AddTimeButton from "./AddTimeButton";
+import useTime from "../../hooks/useTime";
 
 export default function Run(props) {
-  const { run, type, canJoinRun, join, pastEvent } = props;
+  const { run, type, canJoinRun, join, pastEvent, setUpdateData, updateData } =
+    props;
+  const { formatTime } = useTime()
   const joinStatus = canJoinRun(run.id) || false;
-  const [time, setTime] = useState(run.time);
+  const [time, setTime] = useState("");
   const [eventTime, setEventTime] = useState("");
   const [imageClass, setImageClass] = useState("run-image");
   const [showInfoModal, setShowInfoModal] = useState(false);
@@ -34,15 +37,14 @@ export default function Run(props) {
     if (run.time !== 0 && type === "attended") {
       setTime(`${run.time} min`);
     }
+    setEventTime(`${new Date(run.date).toDateString()} at ${formatTime(new Date(run.date))}`);
 
-    if (!pastEvent) {
-      setEventTime(`On ${run.date} at ${run.event_time}`);
-    } else {
-      setEventTime(`Was on ${run.date} at ${run.event_time}`);
+    if (pastEvent) {
       setImageClass((prev) => prev + " past-event");
     }
-  }, []);
+  }, [run.time, updateData]);
 
+ 
   return (
     <>
       <section className="run">
@@ -81,15 +83,15 @@ export default function Run(props) {
               <ListGroup.Item>
                 <strong>Distance:</strong> {run.distance} km
               </ListGroup.Item>
-              {time !== 0 && type === "attended" && (
+              {run.time !== 0 && type === "attended" && (
                 <ListGroup.Item>
                   <strong>Recorded Time:</strong> {time}
                 </ListGroup.Item>
               )}
             </ListGroup>
             <JoinButton runType={type} joinStatus={joinStatus} join={join} />
-            {type === "attended" && time === 0 && pastEvent && (
-              <AddTimeButton run={run} />
+            {type === "attended" && pastEvent && (
+              <AddTimeButton run={run} update={() => setUpdateData(true)} />
             )}
           </div>
         </div>
