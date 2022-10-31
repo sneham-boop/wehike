@@ -1,6 +1,6 @@
-import { atom, useRecoilState, useSetRecoilState } from "recoil";
+import { atom, useRecoilState } from "recoil";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { recoilPersist } from "recoil-persist";
 import { userState } from "./useAppData";
 

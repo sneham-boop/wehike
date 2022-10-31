@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect } from "react";
 import { atom, useRecoilState, useSetRecoilState } from "recoil";
 import { recoilPersist } from "recoil-persist";
 import { runnerRunsState, plannerRunsState, runsState } from "./useRuns";
@@ -16,7 +15,6 @@ export const userState = atom({
 
 
 export default function useAppData() {
-  const setRuns = useSetRecoilState(runsState);
   const [runnerRuns, setRunnerRuns] = useRecoilState(runnerRunsState);
   const setPlannerRuns = useSetRecoilState(plannerRunsState);
   const [user, setUser] = useRecoilState(userState);
