@@ -265,7 +265,7 @@ p.past-event {
     display: none;
   }
 
-  .join-button {
+  .join-button, .add-time-button {
     align-self: center;
     height: 2em;
     width: 8em;
