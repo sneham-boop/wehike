@@ -3,7 +3,7 @@ const faqData = {
     icon: "lightbulb",
     question: "How did you come up with this idea?",
     answer:
-      "weRUN was my finals project for the Lighthouse Labs web development bootcamp. It was my partners idea and is based on the Parkrun organization, https://www.parkrun.com/about/. It is an international community of runners that organizes free community based running events all over the world. We chose to focus on Canada alone.",
+      "weRUN was my finals project for the Lighthouse Labs web development bootcamp. It was my partners idea and is based on the Parkrun organization, https://www.parkrun.com. It is an international community of runners that organizes free community based running events all over the world. We chose to focus on Canada alone.",
   },
   1: {
     icon: "table_rows",
