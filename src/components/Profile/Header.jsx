@@ -18,7 +18,7 @@ export default function Profile() {
   const [runData, setRunData] = useState({ distance: 0, minutes: 0, count: 0 });
 
   const profilePicture = (
-    <img className="profile-pic" src={profilePhoto} alt="icon-profile" />
+    <img className="profile-pic" src="https://images.pexels.com/photos/3042160/pexels-photo-3042160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="icon-profile" />
   );
 
   useEffect(() => {
@@ -50,33 +50,6 @@ export default function Profile() {
           </div>
           <ProfileActions />
         </div>
-        {/* <h4>YOU HAVE:</h4> */}
-        {/* <Table size="sm">
-            <thead>
-              <tr>
-                <th>RUN FOR</th>
-                <th>COVERED</th>
-                <th>ATTENDED</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  {runData.minutes}
-                  <span className="unit">min</span>
-                </td>
-                
-                <td>
-                  {runData.distance}
-                  <span className="unit">km</span>
-                </td>
-                <td>
-                  {runData.count}
-                  <span className="unit">runs</span>
-                </td>
-              </tr>
-            </tbody>
-          </Table> */}
         <Stats />
       </div>
       {profilePicture}

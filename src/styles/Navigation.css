@@ -43,7 +43,7 @@
 
 @media screen and (max-width: 991px) {
   .signed-in {
-    display: block;
+    display: inline;
     color: rgba(0, 0, 0, 0.55);
   }
 
