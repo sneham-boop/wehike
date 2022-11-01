@@ -36,7 +36,8 @@
 
 .map-info .material-symbols-rounded {
   width: 40%;
-  filter: invert(64%) sepia(16%) saturate(4206%) hue-rotate(323deg) brightness(99%) contrast(83%);
+  filter: invert(64%) sepia(16%) saturate(4206%) hue-rotate(323deg)
+    brightness(99%) contrast(83%);
   animation: move 0.5s infinite alternate-reverse ease-in-out;
   position: relative;
   cursor: pointer;
@@ -98,5 +99,13 @@
 @media screen and (max-width: 600px) {
   .map {
     height: 35vh;
+  }
+
+  .map-info {
+    padding: 0 1em;
+  }
+
+  .map-info p {
+    font-size: 15px;
   }
 }

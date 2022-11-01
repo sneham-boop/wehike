@@ -32,7 +32,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2em;
+  gap: 3em;
+}
+
+.runs-tab.runs-container {
+  margin-top: 3em;
 }
 
 .joining-status-header {
@@ -95,7 +99,7 @@
   .runs-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    gap: 2em;
+    gap: 3em;
     padding: 0 1em;
   }
 
@@ -123,7 +127,7 @@
 
   #available-runs p {
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .joining-status-message p {
