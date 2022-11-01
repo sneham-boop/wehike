@@ -15,10 +15,16 @@
 }
 
 .nav-link:hover {
-  /* background-color: #d83a01c3; */
   background-color: #f87254;
   color: white;
   transition: all 0.5s;
   font-weight: 600;
 }
 
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}

@@ -23,55 +23,46 @@ export default function Navigation() {
   };
 
   return (
-    <Navbar id="navigation" bg="light" expand="lg">
+    <Navbar id="navigation" bg="light" expand="lg" collapseOnSelect>
       <Container fluid>
         <Link className="navbar-brand" to="/">
-          <img
-            src={logo}
-            className="d-inline-block align-top"
-            alt="logo"
-          />
+          <img src={logo} className="d-inline-block align-top" alt="logo" />
         </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            <Link className="nav-link" to="/">
+          <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }}>
+            <Nav.Link as={Link} eventKey="1" className="nav-link" to="/">
               Home
-            </Link>
-            <Link className="nav-link" to="/runs">
+            </Nav.Link>
+            <Nav.Link as={Link} eventKey="2" className="nav-link" to="/runs">
               Join A Run
-            </Link>
+            </Nav.Link>
           </Nav>
           <Nav pullright="true">
-              <Link className="nav-link" to="/faq">
-                FAQs
-              </Link>
+            <Nav.Link as={Link} eventKey="3" className="nav-link" to="/faq">
+              FAQs
+            </Nav.Link>
             {user === null && (
-              <Link className="nav-link" to="/signin">
+              <Nav.Link as={Link} eventKey="4" className="nav-link" to="/signin">
                 Sign In
-              </Link>
+              </Nav.Link>
             )}
             {user === null && (
-              <Link className="nav-link" to="/register">
+              <Nav.Link as={Link} eventKey="5" className="nav-link" to="/register">
                 Sign Up
-              </Link>
+              </Nav.Link>
             )}
 
             {user !== null && (
-              <Link className="nav-link" to="/profile">
+              <Nav.Link as={Link} eventKey="6" className="nav-link" to="/profile">
                 Profile
-              </Link>
+              </Nav.Link>
             )}
             {user !== null && (
-              <Link className="nav-link" to="#" onClick={signOut}>
+              <Nav.Link as={Link} eventKey="7" className="nav-link" to="#" onClick={signOut}>
                 Sign Out
-              </Link>
+              </Nav.Link>
             )}
-
           </Nav>
         </Navbar.Collapse>
       </Container>
