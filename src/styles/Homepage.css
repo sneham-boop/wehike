@@ -107,7 +107,6 @@
   }
 
   .home-actions {
-    gap: 1em;
     font-size: 40px;
   }
 
@@ -169,6 +168,10 @@
 
   .home-intro p {
     font-size: 1rem;
+  }
+
+  .home-actions {
+    gap: 5vw;
   }
 
   .home-actions a {
