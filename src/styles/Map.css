@@ -35,13 +35,8 @@
 }
 
 .map-info .material-symbols-rounded {
-  /* font-size: 40px; */
   width: 40%;
-  /* fill: #3e363e; */
-  /* filter: invert(17%) sepia(5%) saturate(1560%) hue-rotate(251deg) brightness(90%) contrast(82%); */
   filter: invert(64%) sepia(16%) saturate(4206%) hue-rotate(323deg) brightness(99%) contrast(83%);
-  /* filter: invert(92%) sepia(89%) saturate(6304%) hue-rotate(294deg) brightness(93%) contrast(93%); */
-  /* font-weight: 200; */
   animation: move 0.5s infinite alternate-reverse ease-in-out;
   position: relative;
   cursor: pointer;
@@ -84,14 +79,16 @@
     justify-content: flex-start;
     margin-top: 2em;
     height: 70%;
-    padding: 0 3em;
+    padding: 0;
   }
   .map {
     height: 50vh;
+    border-radius: 0;
   }
 
   .map-info {
     width: 90vw;
+    padding: 0 3em;
   }
   .map-info .material-symbols-rounded {
     display: none;
