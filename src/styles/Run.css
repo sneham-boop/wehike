@@ -11,14 +11,19 @@
   position: relative;
 }
 
+.run-image {
+  object-fit: cover;
+  width: 20rem;
+  height: 100%;
+  border-radius: 50%;
+}
+
 .runs-tab .run {
   height: 21em;
 }
-
-.run-image {
-  width: auto;
+.runs-tab .run-image {
+  width: 21rem;
   height: 100%;
-  border-radius: 50%;
 }
 
 .run-image.past-event {
@@ -253,8 +258,10 @@ p.past-event {
     margin-bottom: 0.2rem;
   }
 
-  .run-image {
+  .run-image,
+  .runs-tab .run-image {
     height: 18rem;
+    width: 18rem;
     box-shadow: 0 0 5px lightgray;
     border-radius: 0.5rem;
   }
@@ -292,8 +299,10 @@ p.past-event {
     width: auto;
   }
 
-  .run-image {
+  .run-image,
+  .runs-tab .run-image {
     height: 75vw;
+    width: 75vw;
   }
 
   .join-button {
