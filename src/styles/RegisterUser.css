@@ -75,3 +75,16 @@
     font-weight: 300;
   }
   
+
+@media screen and (max-width: 735px) {
+  .form-container {
+    border: none;
+    width: 100%;
+    padding: 0;
+  }
+
+  .form-container-text p {
+    font-size: 18px;
+    width: 80%;
+  }
+}
