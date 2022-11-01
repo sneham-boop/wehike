@@ -1,68 +1,115 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Welcome to WeRun
+## Final Project for Lighthouse Labs Web Development Bootcamp
+### Created by Sneha Mahajan (@sneham-boop) and Marianne Bourcier (@mariannebourcier)
 
-## Available Scripts
+weRun is a single page application where users can find running events near them or create new running events for others to join. The goal of this app is to make running more fun and bring together the runners community by having them join events in an interactive way. 
 
-In the project directory, you can run:
+This app uses React and Bootstrap on the front-end and Express, PostgreSQL and Node on the back-end. Multiple packages and APIS were used to make the user experience smoother, such as Recoil, Google Autocomplete and Google Maps. Twilio is currently being used to send users important information via text messaging. 
 
-### `npm start`
+## Screenshots
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. 
+<img src="https://github.com/mariannebourcier/werun/blob/master/docs/images/signIn.png?raw=true" width="50%" alt="signin">
+This screenshot shows the homepage for WeRun.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+!["map"](https://github.com/mariannebourcier/werun/blob/master/docs/images/joinARun.png?raw=true)
+This screenshot shows a map that centers on the user's current location to allow them to find runs near them more easily. 
 
-### `npm test`
+<img src="https://github.com/mariannebourcier/werun/blob/master/docs/images/markerHoverInfo.png?raw=true" alt="marker-hover" width="50%">
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This screenshot shows the marker for a run and details of the run.
 
-### `npm run build`
+!["run-join"](https://github.com/mariannebourcier/werun/blob/master/docs/images/joiningStatus.png?raw=true)
+This screenshot shows what happens when a user hits the join button for a run. The user will also receive a text message confirming their attendance to the event.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+!["available-runs"](https://github.com/mariannebourcier/werun/blob/master/docs/images/availableRuns.png?raw=true)
+This screenshot shows which runs are available to join.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+!["createrun"](https://github.com/mariannebourcier/werun/blob/master/docs/images/createRunAutocomplete.png?raw=true)
+This screenshot shows the run creation page where users can find the exact location for their run.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+!["run"](https://github.com/mariannebourcier/werun/blob/master/docs/images/runCreated.png?raw=true)
+This screenshot shows the new run that was created under the user's profile planned tab.
 
-### `npm run eject`
+!["run-details"](https://github.com/mariannebourcier/werun/blob/master/docs/images/runCreatedDetails.png?raw=true)
+This screenshot shows the new run's additional details such as the exact route, time and date.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+!["profile"](https://github.com/mariannebourcier/werun/blob/master/docs/images/fullProfile.png?raw=true)
+This screenshot shows the user's profile with their running statistics as well as a planned and attended tab for them to keep track of their events.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="https://github.com/mariannebourcier/werun/blob/master/docs/images/signIn.png?raw=true" width="50%" alt="signin">
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This screenshot shows the sign in page.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img src="https://github.com/mariannebourcier/werun/blob/master/docs/images/signUp.png?raw=true" width="50%" alt="signin">
 
-## Learn More
+This screenshot shows the sign up page.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Dependencies
+### Front-End:
+- axios
+- bootstrap
+- dotenv
+- google-map-react
+- react
+- react-bootstrap
+- react-datepicker
+- react-dom
+- react-google-autocomplete
+- react-router-dom
+- react-scripts
+- recoil
+- recoil-persist
 
-### Code Splitting
+### Back-end:
+- bcryptjs
+- body-parser
+- cookie-session
+- dotenv
+- express
+- nodemon
+- pg
+- twilio
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Getting Started
+1. Git clone project.
 
-### Analyzing the Bundle Size
+### Front-End:
+1. Open the react-front-end folder using the ```cd react-front-end``` command in the terminal.
+2. Install all dependencies using ```npm install``` in the terminal.
+3. Type the ```npm start``` command.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Database:
+1. Create a .env file in the root of the directory like the .env.example file and add your own database credentials for DB_USER, DB_PASS & DB_NAME
+2. Next, we will need to create the database itself. Start PostgreSQL by using the ```psql``` command in your CLI.
+3. Create the database using ```CREATE DATABASE your-db-name;``` command, but make sure to use the database name you used for the DB_NAME variable in the .env file.
+4. Add tables to the database by typing ```\i db/schema/01_schema.sql``` in the terminal.
+5. Add seed data to the database by typing ```\i db/seeds/01_seeds.sql``` in the terminal.
 
-### Making a Progressive Web App
+If the database credentials are setup properly, you should be able to connect to the db using \c your-db-name
+The database must be initialized with new tables and some seed data next.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+A few errors that can occur while setting up a PostgreSQL database:
+Role mismatch: Check existing roles for your machine with \du. If your-role you used in the .env file does not exist, it will not show up and you will have to create one with the following command CREATE ROLE your-role WITH SUPERUSER;. Note that your current role must be superuser to be able to create a new role.
+Password mismatch: Check how you have set up psql on your machine to sort this one.
+Missing .env file: You need a .env file with your own credentials to be able to connect to the database. Use the .env.example file to create the .env file.
 
-### Advanced Configuration
+### Back-end:
+1. Open the express-back-end folder using the ```cd express-back-end``` command in the terminal.
+2. Install all dependencies using ```npm install``` in the terminal.
+3. Type the ```npm start``` command. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+### Future Features
+- A button on the planner tab to notify runners of any changes related to the running event, such as cancelation or time change.
+- A way for runners to record and track their time, possibly using an API from Fitbit, Strava or Apple Health.
+- Allowing users to change their profile picture.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Known Issues
+- The profile picture is a static image from the server.
+- The location selection for runs does not calculate automatically the distance between point A and point B yet.
+- This application hasn't been tested on other browsers besides Google Chrome yet. 
+

@@ -53,3 +53,9 @@
     font-weight: 400 ;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .signed-in {
+    font-size: 13px;
+  }
+}
