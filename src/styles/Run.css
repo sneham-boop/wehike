@@ -8,8 +8,11 @@
   height: 20em;
   border: 1px solid rgba(0, 0, 0, 0.125);
   font-family: "Krub", sans-serif;
-  box-shadow: 0 0 5px lightgrey;
   position: relative;
+}
+
+.runs-tab .run {
+  height: 21em;
 }
 
 .run-image {
@@ -31,7 +34,7 @@ p.past-event {
   font-family: "Sacramento", cursive;
   position: absolute;
   top: 50%;
-  left: 159px;
+  left: 167px;
   transform: translate(-50%, -50%);
   font-size: 30px;
   font-weight: 200;
@@ -236,7 +239,9 @@ p.past-event {
     gap: 1em;
     justify-self: center;
   }
-
+  .runs-tab .run {
+    height: auto;
+  }
   .run-heading .run-id {
     font-size: 16px;
     width: 24px;
@@ -250,12 +255,11 @@ p.past-event {
 
   .run-image {
     height: 18rem;
-    box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px lightgray;
     border-radius: 0.5rem;
   }
 
   p.past-event {
-    /* position: relative; */
     top: 40%;
     left: 50%;
   }
@@ -273,7 +277,8 @@ p.past-event {
     display: none;
   }
 
-  .join-button, .profile-stats .add-time-button {
+  .join-button,
+  .profile-stats .add-time-button {
     align-self: center;
     height: 2em;
     width: 8em;

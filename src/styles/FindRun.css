@@ -99,7 +99,8 @@
   .runs-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    gap: 3em;
+    row-gap: 3em;
+    column-gap: 2em;
     padding: 0 1em;
   }
 
@@ -112,6 +113,7 @@
 @media screen and (max-width: 735px) {
   .runs-container {
     grid-template-columns: auto;
+    row-gap: 5em;
   }
 }
 
