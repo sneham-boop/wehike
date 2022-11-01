@@ -28,6 +28,9 @@ export default function Navigation() {
         <Link className="navbar-brand" to="/">
           <img src={logo} className="d-inline-block align-top" alt="logo" />
         </Link>
+        <Nav.Link as={Link} className="nav-link signed-in" to="/profile">
+          Signed in as {user.name}
+        </Nav.Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }}>
@@ -43,25 +46,46 @@ export default function Navigation() {
               FAQs
             </Nav.Link>
             {user === null && (
-              <Nav.Link as={Link} eventKey="4" className="nav-link" to="/signin">
+              <Nav.Link
+                as={Link}
+                eventKey="4"
+                className="nav-link"
+                to="/signin"
+              >
                 Sign In
               </Nav.Link>
             )}
             {user === null && (
-              <Nav.Link as={Link} eventKey="5" className="nav-link" to="/register">
+              <Nav.Link
+                as={Link}
+                eventKey="5"
+                className="nav-link"
+                to="/register"
+              >
                 Sign Up
               </Nav.Link>
             )}
 
             {user !== null && (
-              <Nav.Link as={Link} eventKey="6" className="nav-link" to="/profile">
-                Profile
-              </Nav.Link>
-            )}
-            {user !== null && (
-              <Nav.Link as={Link} eventKey="7" className="nav-link" to="#" onClick={signOut}>
-                Sign Out
-              </Nav.Link>
+              <>
+                <Nav.Link
+                  as={Link}
+                  eventKey="6"
+                  className="nav-link"
+                  to="/profile"
+                >
+                  Signed in as {user.name}
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  eventKey="7"
+                  className="nav-link"
+                  to="#"
+                  onClick={signOut}
+                >
+                  Sign Out
+                </Nav.Link>
+              </>
             )}
           </Nav>
         </Navbar.Collapse>
