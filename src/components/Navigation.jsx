@@ -28,10 +28,14 @@ export default function Navigation() {
         <Link className="navbar-brand" to="/">
           <img src={logo} className="d-inline-block align-top" alt="logo" />
         </Link>
-        <Nav.Link as={Link} className="nav-link signed-in" to="/profile">
-          Signed in as {user.name}
-        </Nav.Link>
-        <Navbar.Toggle aria-controls="navbarScroll" />
+        <div>
+          {user !== null && (
+            <Navbar.Text className="nav-link signed-in">
+              Signed in as {user.name}
+            </Navbar.Text>
+          )}
+          <Navbar.Toggle aria-controls="navbarScroll" />
+        </div>
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }}>
             <Nav.Link as={Link} eventKey="1" className="nav-link" to="/">
@@ -74,7 +78,7 @@ export default function Navigation() {
                   className="nav-link"
                   to="/profile"
                 >
-                  Signed in as {user.name}
+                  Profile
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
