@@ -42,7 +42,7 @@ export default function JoiningStatus(props) {
       >
         <Modal.Header className="joining-status-header">
           {logoImage}
-          <Modal.Title>THANK YOU FOR {text} A RUN!</Modal.Title>
+          <Modal.Title>{text}</Modal.Title>
           {logoImage}
         </Modal.Header>
         <Modal.Body className="joining-status-message">

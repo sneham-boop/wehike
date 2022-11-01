@@ -84,7 +84,7 @@ export default function AddTimeButton({ run, update }) {
       <JoiningStatus
         joinButtonPressed={joinButtonPressed}
         setJoinButtonPressed={setJoinButtonPressed}
-        text="PLANNING"
+        text="YOUR TIME HAS BEEN UPDATED!"
       />
     </>
   );

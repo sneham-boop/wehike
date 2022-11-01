@@ -265,7 +265,7 @@ export default function RegisterRun() {
       <JoiningStatus
         joinButtonPressed={joinButtonPressed}
         setJoinButtonPressed={setJoinButtonPressed}
-        text="PLANNING"
+        text="THANK YOU FOR PLANNING A RUN!"
       />
     </div>
   );

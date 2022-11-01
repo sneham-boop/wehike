@@ -26,13 +26,6 @@ export default function Run(props) {
     setShowInfoModal(true);
   };
 
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      <p>Event on: {run.date}</p>
-      <p>Click for more</p>
-    </Tooltip>
-  );
-
   useEffect(() => {
     if (run.time !== 0 && type === "attended") {
       setTime(`${run.time} min`);
@@ -59,12 +52,6 @@ export default function Run(props) {
           <div className="run-heading">
             {type === "available" && <span className="run-id">{run.id}</span>}
             <h3>{run.name}</h3>
-
-            <OverlayTrigger
-              placement="left"
-              delay={{ show: 250, hide: 50 }}
-              overlay={renderTooltip}
-            >
               <button
                 type="button"
                 className="detail-button"
@@ -72,7 +59,6 @@ export default function Run(props) {
               >
                 Details
               </button>
-            </OverlayTrigger>
           </div>
           <p>{run.description}</p>
           <div className="run-desc">
