@@ -3,8 +3,6 @@ import ListGroup from "react-bootstrap/ListGroup";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/Run.css";
 import JoinButton from "./JoinButton";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
 import ShowRunInfo from "../ShowRunInfo";
 import AddTimeButton from "./AddTimeButton";
 import useTime from "../../hooks/useTime";

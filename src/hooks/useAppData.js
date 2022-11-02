@@ -1,7 +1,7 @@
 import axios from "axios";
 import { atom, useRecoilState, useSetRecoilState } from "recoil";
 import { recoilPersist } from "recoil-persist";
-import { runnerRunsState, plannerRunsState, runsState } from "./useRuns";
+import { runnerRunsState, plannerRunsState } from "./useRuns";
 
 // Used to persist global app state after manual refreshes.
 // See key in local storage for browser
@@ -17,7 +17,7 @@ export const userState = atom({
 export default function useAppData() {
   const [runnerRuns, setRunnerRuns] = useRecoilState(runnerRunsState);
   const setPlannerRuns = useSetRecoilState(plannerRunsState);
-  const [user, setUser] = useRecoilState(userState);
+  const setUser = useSetRecoilState(userState);
 
   function login(email, password) {
     return axios

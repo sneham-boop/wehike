@@ -1,4 +1,4 @@
-import { atom, useRecoilState } from "recoil";
+import { atom, useRecoilState, useRecoilValue } from "recoil";
 import axios from "axios";
 import { useEffect } from "react";
 import { recoilPersist } from "recoil-persist";
@@ -30,7 +30,7 @@ export default function useRuns(options) {
   const [runs, setRuns] = useRecoilState(runsState);
   const [runnerRuns, setRunnerRuns] = useRecoilState(runnerRunsState);
   const [plannerRuns, setPlannerRuns] = useRecoilState(plannerRunsState);
-  const [user, setUser] = useRecoilState(userState);
+  const user = useRecoilValue(userState);
 
   useEffect(() => {
     Promise.all([axios.get("https://werun-server.herokuapp.com/api/runs")])

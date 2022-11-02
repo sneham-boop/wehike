@@ -5,7 +5,7 @@ import JoiningStatus from "../JoiningStatus";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../hooks/useAppData";
-import useRuns, { runsState } from "../../hooks/useRuns";
+import useRuns from "../../hooks/useRuns";
 import useAppData from "../../hooks/useAppData";
 import "../../styles/FindRun.css";
 

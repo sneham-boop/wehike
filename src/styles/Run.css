@@ -299,13 +299,19 @@ p.past-event {
     width: auto;
   }
 
-  .run-image,
-  .runs-tab .run-image {
+  .run-image, .runs-tab .run-image {
     height: 75vw;
     width: 75vw;
   }
 
   .join-button {
     align-self: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .run-image, .runs-tab .run-image {
+    height: 85vw;
+    width: 85vw;
   }
 }

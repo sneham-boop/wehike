@@ -6,6 +6,10 @@
   gap: 2em;
 }
 
+.profile-section .nav-link.active:hover {
+  color: #3e363e;
+}
+
 .profile-header {
   max-width: 1300px;
   width: 100%;
@@ -283,3 +287,14 @@
   }
 
 }
+
+
+@media screen and (max-width: 400px) {
+  .profile-header {
+    padding: 0 2em;
+  }
+  .profile-section {
+    padding: 2em 0em;
+  }
+}
+
