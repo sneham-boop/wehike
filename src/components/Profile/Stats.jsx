@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import "../../styles/Profile.css";
 import useRuns from "../../hooks/useRuns";
 import useAppData from "../../hooks/useAppData";
-import profilePhoto from "../../images/profile-photo.jpeg";
 
 export default function Profile() {
   const { pastEvent } = useAppData();

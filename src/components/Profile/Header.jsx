@@ -7,7 +7,6 @@ import { userState } from "../../hooks/useAppData";
 import useRuns from "../../hooks/useRuns";
 import { useRecoilValue } from "recoil";
 import useAppData from "../../hooks/useAppData";
-import profilePhoto from "../../images/profile-photo.jpeg";
 import Stats from "./Stats";
 
 export default function Profile() {
