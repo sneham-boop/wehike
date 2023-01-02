@@ -24,8 +24,16 @@
   color: white;
 }
 
+/* .nav-link:focus:hover {
+  color: white;
+} */
+
 #navigation .nav-link.active {
   color: rgba(0, 0, 0, 0.55);
+}
+
+#navigation .nav-link.active:hover {
+  color: white;
 }
 
 .navbar-toggler {
