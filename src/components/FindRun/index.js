@@ -19,7 +19,7 @@ export default function FindRun() {
   const join = (user_id, run_id) => {
     // Check if joining is possible
     if (!canJoinRun(run_id)) {
-      console.log("You cannot join this run.");
+      console.log("You cannot join this hike.");
       navigate("/");
       return;
     }
@@ -54,11 +54,11 @@ export default function FindRun() {
         <section id="available-runs">
           <h2>Available right now</h2>
           <p>
-            Our runs are about being inclusive, community and wellbeing. Our
+            Our hikes are about being inclusive, community and wellbeing. Our
             mission is for people to feel part of a real local community brought
-            together by physical activity, as well as our national weRun family
+            together by physical activity, as well as our national weHike family
             across Canada. If you can't find an event near you, you can register
-            with weRun and plan your own.
+            with weHike and plan your own.
           </p>
         </section>
         <section className="runs-container">

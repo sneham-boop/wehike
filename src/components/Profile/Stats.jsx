@@ -42,7 +42,7 @@ export default function Profile() {
           <span>{runData.distance}</span>
         </div>
         <div className="stats-data">
-          <p>RUNS (count)</p>
+          <p>HIKES (count)</p>
           <span>{runData.count}</span>
         </div>
       </section>

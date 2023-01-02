@@ -138,9 +138,9 @@ export default function RegisterRun() {
           onSubmit={handleSubmit}
         >
           <div className="form-container-text">
-            <Form.Text as="h3">Create a Run!</Form.Text>
+            <Form.Text as="h3">Create a new Hike!</Form.Text>
             <Form.Text as="p">
-              Don't see a run event near you? Just tell us where and when and
+              Don't see a hiking event near you? Just tell us where and when and
               the rest is on us.
             </Form.Text>
           </div>
@@ -155,7 +155,7 @@ export default function RegisterRun() {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
-              Enter a name for the run.
+              Enter a name for the hike.
             </Form.Control.Feedback>
           </FloatingLabel>
           <FloatingLabel
@@ -272,7 +272,7 @@ export default function RegisterRun() {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
-              Upload an image for this run.
+              Upload an image for this hike.
             </Form.Control.Feedback>
           </Form.Group>
           <Button variant="custom" type="submit" className="btn">

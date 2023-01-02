@@ -28,7 +28,7 @@ const faqData = {
   },
   5: {
     icon: "add_circle",
-    question: "What other features would you like to add to weRUN?",
+    question: "What other features would you like to add to weHike?",
     answer: "I would love to add a chat feature for event planners to communicate with people about any event changes.",
   },
   6: {
