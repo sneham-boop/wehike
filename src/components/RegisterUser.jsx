@@ -79,7 +79,7 @@ export default function RegisterUser() {
         <div className="form-container-text">
           <Form.Text as="h3">hello runner!</Form.Text>
           <Form.Text as="p">
-            Create an account with us to use weRun and join runs with people
+            Create an account with us to use weHike and join hikes with people
             from all over Canada.
           </Form.Text>
         </div>

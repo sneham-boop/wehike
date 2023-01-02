@@ -31,7 +31,7 @@ export default function SignIn() {
       <Form className="form-container sign-in text-center" onSubmit={handleSubmit}>
         <div className="form-container-text">
           <Form.Text as="h3">Welcome back!</Form.Text>
-          <Form.Text as="p">Sign in to see all your running events.</Form.Text>
+          <Form.Text as="p">Sign in to see all your hiking events.</Form.Text>
         </div>
         <FloatingLabel controlId="floatingInput" label="Email" className="mb-3">
           <Form.Control

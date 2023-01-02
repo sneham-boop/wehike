@@ -42,7 +42,7 @@ export default function Navigation() {
               Home
             </Nav.Link>
             <Nav.Link as={Link} eventKey="2" className="nav-link" to="/runs">
-              Join A Run
+              Join A Hike
             </Nav.Link>
           </Nav>
           <Nav pullright="true">

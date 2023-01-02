@@ -9,20 +9,20 @@ export default function Homepage() {
       <div className="home">
         <div>
           <div className="home-intro">
-            <h2>Welcome to weRun!</h2>
+            <h2>Welcome to weHike!</h2>
             <p>
-              We organise free, weekly, timed, community events all over Canada.
-              Get connected to runs near you today. Bring a buddy!
+              We organise free, weekly, timed, community hiking events all over Canada.
+              Get connected to hikers near you today. Bring a buddy with you!
             </p>
           </div>
           <div className="home-actions">
             <Link className="home-join" to="/runs">
               <div className="underline">Search</div>
-              <p>Find local running events</p>
+              <p>Find local hiking events</p>
             </Link>
             <Link className="home-plan" to="/create">
               <div className="underline">Plan</div>
-              <p>Create a new running event</p>
+              <p>Create a new hiking event</p>
             </Link>
           </div>
         </div>

@@ -48,7 +48,7 @@ export default function JoiningStatus(props) {
         <Modal.Body className="joining-status-message">
           <p>
             You will now be directed to your profile page. You will receive a
-            text message confirming the address of the run and other relevant
+            text message confirming the address of the hike and other relevant
             information!
           </p>
           <p>Reach out to us for more information at hello@werun.com.</p>
