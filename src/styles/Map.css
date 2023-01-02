@@ -36,8 +36,11 @@
 
 .map-info .material-symbols-rounded {
   width: 40%;
-  filter: invert(64%) sepia(16%) saturate(4206%) hue-rotate(323deg)
-    brightness(99%) contrast(83%);
+  /* filter: invert(64%) sepia(16%) saturate(4206%) hue-rotate(323deg)
+    brightness(99%) contrast(83%); */
+    /* filter: invert(54%) sepia(14%) saturate(4724%) hue-rotate(339deg) brightness(90%) contrast(98%); */
+  /* color: #fc6e34; */
+  filter: invert(59%) sepia(19%) saturate(4610%) hue-rotate(339deg) brightness(90%) contrast(98%);
   animation: move 0.5s infinite alternate-reverse ease-in-out;
   position: relative;
   cursor: pointer;
