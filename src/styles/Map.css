@@ -12,7 +12,7 @@
 
 .map-info {
   width: 30vw;
-  color: #3e363e;
+  color: #202d10;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@
 }
 
 .map-info p a {
-  color: #3e363e;
+  color: #202d10;
 }
 
 .map-info .material-symbols-rounded {

@@ -7,7 +7,7 @@
 }
 
 .form-text {
-  color: #3e363e;
+  color: #202d10;
 }
 
 .form-container {
@@ -67,11 +67,11 @@
     /* background-color: #d83a01ee; */
     border: 1px solid #7c7978c3;
     transition: 0.5s;
-    /* border-color: #3e363e; */
+    /* border-color: #202d10; */
   }
   
   .btn[disabled] {
-    background-color: #3e363e64;
+    background-color: #202d1064;
     font-weight: 300;
   }
 

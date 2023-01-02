@@ -7,7 +7,7 @@
 }
 
 .profile-section .nav-link.active:hover {
-  color: #3e363e;
+  color: #202d10;
 }
 
 .profile-header {
@@ -99,9 +99,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #3e363e1a;
+  background-color: #202d101a;
   /* border-radius: 50%; */
-  color: #3e363e;
+  color: #202d10;
 }
 
 .stats p {
@@ -109,7 +109,7 @@
   font-weight: 800;
   font-size: 18px;
   margin: 0;
-  color: #3e363e;
+  color: #202d10;
 }
 
 .stats span {
@@ -134,7 +134,7 @@
 
 .profile-stats button:hover {
   color: white;
-  background-color: #3e363e;
+  background-color: #202d10;
 }
 
 .runs-tab {
@@ -167,7 +167,7 @@
 }
 
 .empty-runs-container .btn:hover {
-  border: 0.5px solid #3e363e;
+  border: 0.5px solid #202d10;
 }
 
 @media screen and (max-width: 1280px) {

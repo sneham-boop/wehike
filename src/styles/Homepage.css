@@ -9,7 +9,7 @@
   padding: 2em;
   font-family: "Krub", sans-serif;
   border-top: 1px solid lightgrey;
-  color: #3e363e;
+  color: #202d10;
 }
 
 .home .home-intro {
@@ -57,9 +57,9 @@
 }
 
 .home-actions a {
-  color: #3e363e;
+  color: #202d10;
   text-decoration: none;
-  background-color: #3e363e22;
+  background-color: #202d1022;
   width: 15rem;
   border-radius: 0.375rem;
   border: 1px solid lightgray;
@@ -73,7 +73,7 @@
 }
 
 .home-actions a:hover {
-  background-color: #3e363e10;
+  background-color: #202d1010;
   transition: 0.5s;
 }
 

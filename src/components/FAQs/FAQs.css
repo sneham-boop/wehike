@@ -4,14 +4,14 @@
   align-items: center;
   justify-content: space-evenly;
   padding: 3em 2em;
-  color: #3e363e;
+  color: #202d10;
   gap: 1em;
 }
 
 #faqs h3 {
   font-size: 50px;
   font-weight: 800;
-  color: #3e363ebc;
+  color: #202d10bc;
 }
 
 #faq-container {

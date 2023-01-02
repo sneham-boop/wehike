@@ -1,5 +1,5 @@
 .run-modal {
-  color: #3e363e;
+  color: #202d10;
   font-family: "Krub", sans-serif;
 }
 
@@ -63,7 +63,7 @@
   width: 400px;
   height: 400px;
   border-radius: 2rem;
-  box-shadow: 0 0 3px #3e363ea8;
+  box-shadow: 0 0 3px #202d10a8;
 }
 
 @media screen and (max-width: 991px) {
