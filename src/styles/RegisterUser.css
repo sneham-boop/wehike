@@ -74,6 +74,12 @@
     background-color: #3e363e64;
     font-weight: 300;
   }
+
+#register-run-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
   
 
 @media screen and (max-width: 735px) {

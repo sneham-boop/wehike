@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 
 export default function AutoComplete(props) {
   const myKey = process.env.REACT_APP_MAP_API_KEY;
-  const { setAddress } = props;
+  const { setAddress, setCalc } = props;
   const { ref: locationRef } = usePlacesWidget({
     apiKey: myKey,
     onPlaceSelected: (place) => {
@@ -13,6 +13,7 @@ export default function AutoComplete(props) {
         place.geometry.location.lat(),
         place.geometry.location.lng()
       );
+      // setCalc(true);
     },
     options: {
       types: ["park"],
@@ -21,6 +22,7 @@ export default function AutoComplete(props) {
     },
     inputAutocompleteValue: "text",
   });
+
   return (
     <>
       <Form.Control

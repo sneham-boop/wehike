@@ -13,7 +13,6 @@ export default function useTime() {
   };
 
   const formatTime = (date) => {
-      console.log(date);
       let hours = date.getHours();
       let minutes = date.getMinutes();
       let ampm = hours >= 12 ? 'pm' : 'am';

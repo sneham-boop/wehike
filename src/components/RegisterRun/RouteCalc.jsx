@@ -3,7 +3,7 @@ import GoogleMapReact from "google-map-react";
 import { useRecoilState } from "recoil";
 import { userCoordinatesAtom } from "../../hooks/userCoords";
 
-const RouteMap = ({ zoom, from, to }) => {
+const RouteCalc = ({ zoom, from, to, calculate, setCalc }) => {
   useRecoilState(userCoordinatesAtom);
   const myKey = process.env.REACT_APP_MAP_API_KEY;
 
@@ -19,29 +19,31 @@ const RouteMap = ({ zoom, from, to }) => {
         disableDefaultUI: true,
       });
 
-      let directionsDisplay = new maps.DirectionsRenderer();
+      // let directionsDisplay = new maps.DirectionsRenderer();
       let directionsService = new maps.DirectionsService();
       calculateAndDisplayRoute(
         new maps.LatLng(from.lat, from.lng),
         new maps.LatLng(to.lat, to.lng),
-        directionsService,
-        directionsDisplay
+        directionsService
+        // directionsDisplay
       );
-      directionsDisplay.setMap(map);
-      directionsDisplay.setOptions({
-        polylineOptions: {
-          strokeColor: "#80B918CC",
-          strokeWeight: "8",
-        },
-      });
-      directionsDisplay.setPanel(document.getElementById("run-path"));
+      // directionsDisplay.setMap(map);
+      // directionsDisplay.setOptions({
+      //   polylineOptions: {
+      //     strokeColor: "#80B918CC",
+      //     strokeWeight: "8",
+      //   },
+      // });
+      // directionsDisplay.setPanel(document.getElementById("run-path"));
     }
+
     initialize();
+    // maps.event.addDomListener(window, "load", initialize);
     function calculateAndDisplayRoute(
       start,
       end,
-      directionsService,
-      directionsDisplay
+      directionsService
+      // directionsDisplay
     ) {
       directionsService.route(
         {
@@ -51,8 +53,8 @@ const RouteMap = ({ zoom, from, to }) => {
         },
         function (response, status) {
           if (status === maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(response);
-            // console.log(response.routes[0].legs[0].distance.text);
+            // directionsDisplay.setDirections(response);
+            console.log(response.routes[0].legs[0].distance.text);
           } else {
             window.alert("Directions request failed due to " + status);
           }
@@ -63,13 +65,14 @@ const RouteMap = ({ zoom, from, to }) => {
 
   return (
     <>
-      <div
-        id="run-path"
-      >
+      <div id="run-path">
         <GoogleMapReact
-          bootstrapURLKeys={{
-            key: myKey,
-          }}
+          bootstrapURLKeys={
+            {
+              // key: myKey,
+              // libraries: ['places'],
+            }
+          }
           defaultCenter={{ lat: 43.6532, lng: -79.3832 }}
           defaultZoom={zoom}
           yesIWantToUseGoogleMapApiInternals
@@ -80,4 +83,4 @@ const RouteMap = ({ zoom, from, to }) => {
   );
 };
 
-export default RouteMap;
+export default RouteCalc;
