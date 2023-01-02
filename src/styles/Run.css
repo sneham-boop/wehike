@@ -85,7 +85,7 @@ p.past-event {
 
 .run-heading .run-id {
   /* background-color: #d83a01c3; */
-  background-color: #f87254;
+  background-color: #fc6e34;
   color: white;
   font-size: 1.5rem;
   font-weight: 800;
@@ -103,7 +103,7 @@ p.past-event {
 
 .run-heading .detail-button {
   /* background-color: #d83a01c3; */
-  background-color: #f87254;
+  background-color: #fc6e34;
   color: white;
   height: 2em;
   border-radius: 0.375rem;
@@ -135,7 +135,7 @@ p.past-event {
 }
 
 .enter-time-modal .modal-header {
-  background-color: #f87254;
+  background-color: #fc6e34;
 }
 
 .enter-time-modal .modal-title {
@@ -162,7 +162,7 @@ p.past-event {
   height: 3em;
   width: 10em;
   /* background-color: #d83a01c3; */
-  background-color: #f87254;
+  background-color: #fc6e34;
   border: none;
   box-shadow: 0 0 5px lightgrey;
   color: white;
