@@ -19,6 +19,7 @@ const GoogleMap = ({ children, ...props }) => {
     <GoogleMapReact
       bootstrapURLKeys={{
         key: process.env.REACT_APP_MAP_API_KEY,
+        libraries: ["places"],
       }}
       center={location}
       {...props}

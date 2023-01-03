@@ -1,6 +1,6 @@
 .forms {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   padding: 2em;
   font-family: "Krub", sans-serif;

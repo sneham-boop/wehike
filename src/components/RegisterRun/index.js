@@ -16,6 +16,7 @@ import useAppData from "../../hooks/useAppData";
 import useTime from "../../hooks/useTime";
 import "react-datepicker/dist/react-datepicker.css";
 import AutoComplete from "./AutoComplete";
+import ShowHikeRoute from "./ShowHikeRoute";
 // import RouteCalc from "./RouteCalc";
 
 export default function RegisterRun() {
@@ -186,13 +187,13 @@ export default function RegisterRun() {
                 label="From..."
                 className="mb-3"
               >
-                <AutoComplete
+                {/* <AutoComplete
                   setAddress={(address, lat, lng) =>
                     setRunData((prev) => {
                       return { ...prev, address: address, lat: lat, lng: lng };
                     })
                   }
-                />
+                /> */}
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
                   Enter a valid address.
@@ -205,7 +206,7 @@ export default function RegisterRun() {
                 label="To..."
                 className="mb-3"
               >
-                <AutoComplete
+                {/* <AutoComplete
                   setAddress={(address, lat, lng) =>
                     setRunData((prev) => {
                       return {
@@ -217,7 +218,7 @@ export default function RegisterRun() {
                     })
                   }
                   setCalc={setCalc}
-                />
+                /> */}
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
                   Enter a valid address.
@@ -284,16 +285,8 @@ export default function RegisterRun() {
           setJoinButtonPressed={setJoinButtonPressed}
           text="THANK YOU FOR PLANNING A RUN!"
         />
+        <ShowHikeRoute/>
       </div>
-      {/* {calc && (
-        <RouteCalc
-          zoom={10}
-          from={{ lat: runData.lat, lng: runData.lng }}
-          to={{ lat: runData.lat_to, lng: runData.lng_to }}
-          calculate={calc}
-          setCalc={setCalc}
-        />
-      )} */}
     </div>
   );
 }
