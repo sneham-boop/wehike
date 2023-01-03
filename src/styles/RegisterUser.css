@@ -1,6 +1,7 @@
 .forms {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   padding: 2em;
   font-family: "Krub", sans-serif;
@@ -80,7 +81,7 @@
   height: 95vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 #register-run-container .form-container {
