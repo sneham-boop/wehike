@@ -18,7 +18,9 @@ export default function Profile() {
       const eventDate = new Date(runnerRuns[key].date);
 
       if (pastEvent(eventDate)) {
-        distance += parseInt(runnerRuns[key].distance);
+        let distCharType = runnerRuns[key].distance;
+        distCharType = distCharType.slice(0, -3);
+        distance += parseInt(distCharType);
         minutes += parseInt(runnerRuns[key].time);
         count += 1;
       }
