@@ -13,7 +13,7 @@ export default function AutoComplete(props) {
         place.geometry.location.lat(),
         place.geometry.location.lng()
       );
-      // setCalc(true);
+      setCalc(true);
     },
     options: {
       types: ["park"],

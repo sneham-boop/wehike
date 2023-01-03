@@ -16,7 +16,7 @@ import useAppData from "../../hooks/useAppData";
 import useTime from "../../hooks/useTime";
 import "react-datepicker/dist/react-datepicker.css";
 import AutoComplete from "./AutoComplete";
-import RouteCalc from "./RouteCalc";
+// import RouteCalc from "./RouteCalc";
 
 export default function RegisterRun() {
   //Get user and update form state
@@ -225,7 +225,7 @@ export default function RegisterRun() {
               </FloatingLabel>
             </Col>
             <Col>
-              <Button variant="custom" type="submit" className="btn">
+              <Button variant="custom" type="button" className="btn" onClick={()=>setCalc(true)}>
                 Check
               </Button>
             </Col>
@@ -285,7 +285,7 @@ export default function RegisterRun() {
           text="THANK YOU FOR PLANNING A RUN!"
         />
       </div>
-      {calc && (
+      {/* {calc && (
         <RouteCalc
           zoom={10}
           from={{ lat: runData.lat, lng: runData.lng }}
@@ -293,7 +293,7 @@ export default function RegisterRun() {
           calculate={calc}
           setCalc={setCalc}
         />
-      )}
+      )} */}
     </div>
   );
 }

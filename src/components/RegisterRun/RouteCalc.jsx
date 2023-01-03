@@ -5,7 +5,7 @@ import { userCoordinatesAtom } from "../../hooks/userCoords";
 
 const RouteCalc = ({ zoom, from, to, calculate, setCalc }) => {
   useRecoilState(userCoordinatesAtom);
-  const myKey = process.env.REACT_APP_MAP_API_KEY;
+  // const myKey = process.env.REACT_APP_MAP_API_KEY;
 
   const handleApiLoaded = (mapp, maps) => {
     let map = mapp;
