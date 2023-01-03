@@ -15,18 +15,15 @@ import { userState } from "../../hooks/useAppData";
 import useAppData from "../../hooks/useAppData";
 import useTime from "../../hooks/useTime";
 import "react-datepicker/dist/react-datepicker.css";
-import AutoComplete from "./AutoComplete";
 import ShowHikeRoute from "./ShowHikeRoute";
-// import RouteCalc from "./RouteCalc";
 
 export default function RegisterRun() {
   const fromRef = useRef(null);
   const toRef = useRef(null);
-  //Get user and update form state
   const user = useRecoilValue(userState);
   const [joinButtonPressed, setJoinButtonPressed] = useState(false);
   const { currentTime } = useTime();
-  const [calc, setCalc] = useState(false);
+
   const [runData, setRunData] = useState({
     planner_id: "",
     name: "",
@@ -35,15 +32,11 @@ export default function RegisterRun() {
     time: "",
     date: new Date(),
     file: "",
-    // lat: "43.952347",
-    // lng: "-79.431323",
     lat: "",
     lng: "",
     address: "",
     lat_to: "",
     lng_to: "",
-    // lat_to: "43.972347",
-    // lng_to: "-79.531323",
     address_to: "",
   });
 
@@ -61,20 +54,8 @@ export default function RegisterRun() {
   //Submit to database
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    //form validity
-    // const form = e.currentTarget;
-    // if (form.checkValidity() === false) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    // }
-
-    //send data
     const response = createRun({ ...runData });
     response && setJoinButtonPressed(true);
-
-    // setValidated(true)
-    // if (validated)
   };
 
   const datePick = () => {
@@ -94,28 +75,6 @@ export default function RegisterRun() {
           key={runData.date}
         />
       </Form.Group>
-    );
-  };
-
-  const distanceSelector = () => {
-    return (
-      <div className="mb-3">
-        {[2, 5, 10].map((label, index) => {
-          return (
-            <Form.Check
-              required
-              key={label}
-              inline
-              type="radio"
-              id={`inline-radio-1-${index}`}
-              label={`${label}k`}
-              value={label}
-              name="distance"
-              onChange={handleChange}
-            />
-          );
-        })}
-      </div>
     );
   };
 
@@ -156,10 +115,6 @@ export default function RegisterRun() {
               value={runData.name}
               onChange={(e) => handleChange(e)}
             />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            <Form.Control.Feedback type="invalid">
-              Enter a name for the hike.
-            </Form.Control.Feedback>
           </FloatingLabel>
           <FloatingLabel
             controlId="description"
@@ -175,11 +130,6 @@ export default function RegisterRun() {
               value={runData.description}
               onChange={handleChange}
             />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            <Form.Control.Feedback type="invalid">
-              Write a short description including directions, necessary
-              information, etc.
-            </Form.Control.Feedback>
           </FloatingLabel>
 
           <Row>
@@ -221,20 +171,20 @@ export default function RegisterRun() {
                 </Form.Control.Feedback>
               </FloatingLabel>
             </Col>
-            <Col>
-              <Button
-                variant="custom"
-                type="button"
-                className="btn"
-                onClick={() => setCalc(true)}
-              >
-                Check
-              </Button>
-            </Col>
           </Row>
-          <Form.Group controlId="distance" className="mb-3">
-            <Form.Label>Distance</Form.Label>
-            {distanceSelector()}
+          <Form.Group as={Row} className="mb-3">
+            <Form.Label column sm="2">
+              Distance
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control
+                disabled
+                readOnly
+                value={
+                  runData.distance || "Enter 'From..' & 'To..' to see distance."
+                }
+              />
+            </Col>
           </Form.Group>
 
           <Row>
@@ -255,10 +205,6 @@ export default function RegisterRun() {
                     });
                   }}
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                <Form.Control.Feedback type="invalid">
-                  Enter a valid time.
-                </Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
@@ -272,10 +218,6 @@ export default function RegisterRun() {
                 setRunData({ ...runData, file: e.target.files[0] })
               }
             />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            <Form.Control.Feedback type="invalid">
-              Upload an image for this hike.
-            </Form.Control.Feedback>
           </Form.Group>
           <Button variant="custom" type="submit" className="btn">
             Create
@@ -286,7 +228,11 @@ export default function RegisterRun() {
           setJoinButtonPressed={setJoinButtonPressed}
           text="THANK YOU FOR PLANNING A RUN!"
         />
-        <ShowHikeRoute calc={calc} fromRef={fromRef} toRef={toRef} />
+        <ShowHikeRoute
+          fromRef={fromRef}
+          toRef={toRef}
+          setRunData={setRunData}
+        />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import AutoComplete from "./AutoComplete";
 import Markers from "../Map/Markers";
 import "../../styles/Map.css";
 
-const ShowHikeRoute = ({ center, zoom = 10, calc, fromRef, toRef }) => {
+const ShowHikeRoute = ({ zoom = 10, fromRef, toRef, setRunData }) => {
   const [mapAPILoaded, setMapAPILoaded] = useState(false);
   const [map, setMap] = useState(null);
   const [mapAPI, setMapAPI] = useState(null);
@@ -70,7 +70,21 @@ const ShowHikeRoute = ({ center, zoom = 10, calc, fromRef, toRef }) => {
   useEffect(() => {
     from && to && console.log("We got location A & B", from, to);
     if (mapAPILoaded && from && to) showRouteOnMap(map, mapAPI);
-  }, [from, to]);
+    if (distance) {
+      setRunData((prev) => {
+        return {
+          ...prev,
+          lat: from.lat,
+          lng: from.lng,
+          address: from.formatted_address,
+          lat_to: to.lat,
+          lng_to: to.lng,
+          address_to: to.formatted_address,
+          distance: distance
+        };
+      });
+    }
+  }, [from, to, distance]);
 
   function showRouteOnMap(map, maps) {
     // map = new maps.Map(document.getElementById("check-route-map"), {
