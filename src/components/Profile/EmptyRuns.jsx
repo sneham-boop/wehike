@@ -14,7 +14,7 @@ export default function EmptyRuns(props) {
   useEffect(() => {
     if (props.type === "attended")
       setType({
-        link: "/runs",
+        link: "/hike",
         action: "Join",
         headingText:
           "You have not participated in any runs yet. See all available runs in your area.",

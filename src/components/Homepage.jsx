@@ -16,7 +16,7 @@ export default function Homepage() {
             </p>
           </div>
           <div className="home-actions">
-            <Link className="home-join" to="/runs">
+            <Link className="home-join" to="/hike">
               <div className="underline">Search</div>
               <p>Find local hiking events</p>
             </Link>

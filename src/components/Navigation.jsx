@@ -41,7 +41,7 @@ export default function Navigation() {
             <Nav.Link as={Link} eventKey="1" className="nav-link" to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={Link} eventKey="2" className="nav-link" to="/runs">
+            <Nav.Link as={Link} eventKey="2" className="nav-link" to="/hike">
               Join A Hike
             </Nav.Link>
           </Nav>

@@ -20,7 +20,7 @@ export const router = createHashRouter(
     <Route path="/" element={<App />}>
       <Route index element={<Homepage />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/runs" element={<FindRun />} />
+      <Route path="/hike" element={<FindRun />} />
       <Route path="/register" element={<RegisterUser />} />
       <Route path="/create" element={<RegisterRun />}/>
       <Route path="/signin" element={<SignIn />} />

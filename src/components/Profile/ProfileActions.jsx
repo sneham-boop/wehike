@@ -41,7 +41,7 @@ export default function ProfileActions(props) {
         >
           <span
             className="material-symbols-rounded"
-            onClick={() => handleClick("/runs")}
+            onClick={() => handleClick("/hike")}
             onMouseEnter={()=>setAction("Join A Hike")}
           >
             run_circle
