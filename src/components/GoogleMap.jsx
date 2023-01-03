@@ -8,13 +8,21 @@ const GoogleMap = ({ children, ...props }) => {
   const [location, setLocation] = useState(
     getLocalStorage("location") || defaultLocation
   );
-  useEffect(() => {
+
+  const currLoc = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       setLocation({ lat: latitude, lng: longitude });
       setLocalStorage("location", { lat: latitude, lng: longitude });
     });
+  };
+  useEffect(() => {
+    currLoc();
+    return function cleanup() {
+      currLoc();
+    };
   }, [setLocalStorage]);
+
   return (
     <GoogleMapReact
       bootstrapURLKeys={{
