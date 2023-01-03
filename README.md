@@ -1,10 +1,10 @@
-# Welcome to WeRun
-## Final Project for Lighthouse Labs Web Development Bootcamp
-### Created by Sneha Mahajan (@sneham-boop) and Marianne Bourcier (@mariannebourcier)
+# Welcome to weHike
 
-weRun is a single page application where users can find running events near them or create new running events for others to join. The goal of this app is to make running more fun and bring together the runners community by having them join events in an interactive way. 
+weHike is based on my finals project, weRun, for the Lighthouse Labs web development bootcamp. I wanted to add more features to the app and put my own little twist on it! My husband and I often go hiking with our dog and I thought it would be fun to change over this app to track hiking events instead of running events. 
 
 This app uses React and Bootstrap on the front-end and Express, PostgreSQL and Node on the back-end. Multiple packages and APIS were used to make the user experience smoother, such as Recoil, Google Autocomplete and Google Maps. Twilio is currently being used to send users important information via text messaging. 
+
+Live link: [weHike](https://wehike-app.netlify.app/)
 
 ## Screenshots
 
