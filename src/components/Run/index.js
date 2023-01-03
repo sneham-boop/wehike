@@ -65,7 +65,7 @@ export default function Run(props) {
                 <strong>When:</strong> {eventTime}
               </ListGroup.Item>
               <ListGroup.Item>
-                <strong>Distance:</strong> {run.distance} km
+                <strong>Distance:</strong> {run.distance}
               </ListGroup.Item>
               {run.time !== 0 && type === "attended" && (
                 <ListGroup.Item>
