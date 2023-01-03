@@ -228,12 +228,12 @@ export default function RegisterRun() {
           setJoinButtonPressed={setJoinButtonPressed}
           text="THANK YOU FOR PLANNING A HIKE!"
         />
-        <ShowHikeRoute
+      </div>
+      <ShowHikeRoute
           fromRef={fromRef}
           toRef={toRef}
           setRunData={setRunData}
         />
-      </div>
     </div>
   );
 }

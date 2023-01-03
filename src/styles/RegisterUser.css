@@ -50,37 +50,62 @@
 }
 
 .btn {
-    height: 3em;
-    width: 7em;
-    /* background-color: #d83a01c3; */
-    background-color: #fc6e34;
-    border: 1px solid #d83a0100;
-    box-shadow: 0 0 5px lightgrey;
-    color: white;
-    border-radius: 0.375rem;
-    font-weight: 800;
-    align-self: flex-end;
-  }
-  
-  .btn.btn-custom:hover {
-    font-weight: 800;
-    /* background-color: #d83a01ee; */
-    border: 1px solid #7c7978c3;
-    transition: 0.5s;
-    /* border-color: #202d10; */
-  }
-  
-  .btn[disabled] {
-    background-color: #202d1064;
-    font-weight: 300;
-  }
+  height: 3em;
+  width: 7em;
+  /* background-color: #d83a01c3; */
+  background-color: #fc6e34;
+  border: 1px solid #d83a0100;
+  box-shadow: 0 0 5px lightgrey;
+  color: white;
+  border-radius: 0.375rem;
+  font-weight: 800;
+  align-self: flex-end;
+}
+
+.btn.btn-custom:hover {
+  font-weight: 800;
+  /* background-color: #d83a01ee; */
+  border: 1px solid #7c7978c3;
+  transition: 0.5s;
+  /* border-color: #202d10; */
+}
+
+.btn[disabled] {
+  background-color: #202d1064;
+  font-weight: 300;
+}
 
 #register-run-container {
+  width: 100vw;
+  height: 95vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-  
+
+#register-run-container .form-container {
+  border: none;
+}
+
+#check-route-map {
+  height: 100%;
+  width: 50%;
+  border-radius: 0;
+}
+
+@media screen and (max-width: 1190px) {
+  #register-run-container {
+    height: 100%;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  #check-route-map {
+    height: 60vh;
+    width: 100vw;
+    border-radius: 0;
+  }
+}
 
 @media screen and (max-width: 735px) {
   .form-container {

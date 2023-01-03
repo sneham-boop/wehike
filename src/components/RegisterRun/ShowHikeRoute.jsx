@@ -142,7 +142,7 @@ const ShowHikeRoute = ({ zoom = 10, fromRef, toRef, setRunData }) => {
       <div
         id="check-route-map"
         className="map"
-        style={{ width: "500px", height: "500px" }}
+        // style={{ width: "500px", height: "500px" }}
       >
         <AutoComplete
           map={map}
