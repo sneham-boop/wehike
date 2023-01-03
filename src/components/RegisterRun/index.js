@@ -226,7 +226,7 @@ export default function RegisterRun() {
         <JoiningStatus
           joinButtonPressed={joinButtonPressed}
           setJoinButtonPressed={setJoinButtonPressed}
-          text="THANK YOU FOR PLANNING A RUN!"
+          text="THANK YOU FOR PLANNING A HIKE!"
         />
         <ShowHikeRoute
           fromRef={fromRef}

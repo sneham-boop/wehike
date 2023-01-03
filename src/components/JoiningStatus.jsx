@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Spinner from "react-bootstrap/Spinner";
 import { useNavigate } from "react-router-dom";
-import logo from "../images/weHike-small-logo.svg";
+import logo from "../images/weHike-Transition-Logo.svg";
 
 export default function JoiningStatus(props) {
   const { joinButtonPressed, setJoinButtonPressed } = props;
@@ -51,7 +51,7 @@ export default function JoiningStatus(props) {
             text message confirming the address of the hike and other relevant
             information!
           </p>
-          <p>Reach out to us for more information at hello@werun.com.</p>
+          <p>Reach out to us for more information at hello@wehike.com.</p>
           <Spinner className="status-spinner" animation="border" />
         </Modal.Body>
       </Modal>
