@@ -167,7 +167,6 @@ export default function useAppData() {
 
   async function updateRunTime({ run_id, runner_id, time }) {
     try {
-      console.log("In update run time", time);
       const { data, status } = await axios({
         method: "put",
         url: `https://werun-server.herokuapp.com/api/runs/runner/${runner_id}`,

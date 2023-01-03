@@ -68,7 +68,6 @@ const ShowHikeRoute = ({ zoom = 10, fromRef, toRef, setRunData }) => {
   };
 
   useEffect(() => {
-    from && to && console.log("We got location A & B", from, to);
     if (mapAPILoaded && from && to) showRouteOnMap(map, mapAPI);
     if (distance) {
       setRunData((prev) => {
@@ -130,7 +129,6 @@ const ShowHikeRoute = ({ zoom = 10, fromRef, toRef, setRunData }) => {
       function (response, status) {
         if (status === maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
-          console.log(response.routes[0].legs[0].distance.text);
           setDistance(response.routes[0].legs[0].distance.text);
         } else {
           window.alert("Directions request failed due to " + status);
