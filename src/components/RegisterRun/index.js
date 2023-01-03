@@ -285,7 +285,7 @@ export default function RegisterRun() {
           setJoinButtonPressed={setJoinButtonPressed}
           text="THANK YOU FOR PLANNING A RUN!"
         />
-        <ShowHikeRoute/>
+        <ShowHikeRoute calc={calc}/>
       </div>
     </div>
   );

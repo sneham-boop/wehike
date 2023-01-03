@@ -2,7 +2,12 @@
 import React, { useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
 
-export default function AutoComplete({ map, mapAPI, locationPlaceHolderText, setPlace }) {
+export default function AutoComplete({
+  map,
+  mapAPI,
+  locationPlaceHolderText,
+  setPlace,
+}) {
   const locationRef = useRef(null);
   // const [place, setPlace] = useState(null);
   // const { ref: locationRef } = usePlacesWidget({
@@ -29,8 +34,11 @@ export default function AutoComplete({ map, mapAPI, locationPlaceHolderText, set
     if (!place.geometry) return;
     if (place.geometry.viewport) {
       map.fitBounds(place.geometry.viewport);
-      setPlace({lat: place.geometry.location.lat(), lng: place.geometry.location.lng()})
-      // console.log(place.geometry.location.lat(), place.geometry.location.lng());
+      setPlace({
+        lat: place.geometry.location.lat(),
+        lng: place.geometry.location.lng(),
+        formatted_address: place.formatted_address,
+      });
     } else {
       map.setCenter(place.geometry.location);
       map.setZoom(10);
