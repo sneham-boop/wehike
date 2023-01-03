@@ -7,26 +7,9 @@ export default function AutoComplete({
   mapAPI,
   locationPlaceHolderText,
   setPlace,
+  locationRef
 }) {
-  const locationRef = useRef(null);
-  // const [place, setPlace] = useState(null);
-  // const { ref: locationRef } = usePlacesWidget({
-  //   apiKey: myKey,
-  //   onPlaceSelected: (place) => {
-  //     setAddress(
-  //       place.formatted_address,
-  //       place.geometry.location.lat(),
-  //       place.geometry.location.lng()
-  //     );
-  //     setCalc(true);
-  //   },
-  //   options: {
-  //     types: ["park"],
-  //     componentRestrictions: { country: "ca" },
-  //     fields: ["name", "formatted_address", "geometry"],
-  //   },
-  //   inputAutocompleteValue: "text",
-  // });
+  // const locationRef = useRef(null);
 
   const onPlaceChanged = (map) => {
     const place = autoCompleteInput.getPlace();
@@ -62,13 +45,13 @@ export default function AutoComplete({
 
   return (
     <>
-      <Form.Control
+      {/* <Form.Control
         required
         type="text"
         ref={locationRef}
         placeholder={locationPlaceHolderText}
         autoComplete="text"
-      />
+      /> */}
     </>
   );
 }

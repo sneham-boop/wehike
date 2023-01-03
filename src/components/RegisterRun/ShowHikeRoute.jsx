@@ -4,7 +4,7 @@ import AutoComplete from "./AutoComplete";
 import Markers from "../Map/Markers";
 import "../../styles/Map.css";
 
-const ShowHikeRoute = ({ center, zoom = 10, calc }) => {
+const ShowHikeRoute = ({ center, zoom = 10, calc, fromRef, toRef }) => {
   const [mapAPILoaded, setMapAPILoaded] = useState(false);
   const [map, setMap] = useState(null);
   const [mapAPI, setMapAPI] = useState(null);
@@ -69,10 +69,10 @@ const ShowHikeRoute = ({ center, zoom = 10, calc }) => {
 
   useEffect(() => {
     from && to && console.log("We got location A & B", from, to);
-    if (mapAPILoaded && from && to) initialize(map, mapAPI);
+    if (mapAPILoaded && from && to) showRouteOnMap(map, mapAPI);
   }, [from, to]);
 
-  function initialize(map, maps) {
+  function showRouteOnMap(map, maps) {
     // map = new maps.Map(document.getElementById("check-route-map"), {
     //   mapId: "4493db09864aa939",
     //   center: new maps.LatLng(43.6532, -79.3832),
@@ -130,21 +130,21 @@ const ShowHikeRoute = ({ center, zoom = 10, calc }) => {
       <div
         id="check-route-map"
         className="map"
-        style={{ width: "800px", height: "800px" }}
+        style={{ width: "500px", height: "500px" }}
       >
         <AutoComplete
-          loaded={mapAPILoaded}
           map={map}
           mapAPI={mapAPI}
           locationPlaceHolderText="From"
           setPlace={setFrom}
+          locationRef={fromRef}
         />
         <AutoComplete
-          loaded={mapAPILoaded}
           map={map}
           mapAPI={mapAPI}
           locationPlaceHolderText="To"
           setPlace={setTo}
+          locationRef={toRef}
         />
         <GoogleMap
           defaultCenter={{ lat: 43.6532, lng: -79.3832 }}

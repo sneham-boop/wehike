@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
@@ -20,6 +20,8 @@ import ShowHikeRoute from "./ShowHikeRoute";
 // import RouteCalc from "./RouteCalc";
 
 export default function RegisterRun() {
+  const fromRef = useRef(null);
+  const toRef = useRef(null);
   //Get user and update form state
   const user = useRecoilValue(userState);
   const [joinButtonPressed, setJoinButtonPressed] = useState(false);
@@ -187,13 +189,13 @@ export default function RegisterRun() {
                 label="From..."
                 className="mb-3"
               >
-                {/* <AutoComplete
-                  setAddress={(address, lat, lng) =>
-                    setRunData((prev) => {
-                      return { ...prev, address: address, lat: lat, lng: lng };
-                    })
-                  }
-                /> */}
+                <Form.Control
+                  required
+                  type="text"
+                  ref={fromRef}
+                  placeholder="From"
+                  autoComplete="text"
+                />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
                   Enter a valid address.
@@ -206,19 +208,13 @@ export default function RegisterRun() {
                 label="To..."
                 className="mb-3"
               >
-                {/* <AutoComplete
-                  setAddress={(address, lat, lng) =>
-                    setRunData((prev) => {
-                      return {
-                        ...prev,
-                        address_to: address,
-                        lat_to: lat,
-                        lng_to: lng,
-                      };
-                    })
-                  }
-                  setCalc={setCalc}
-                /> */}
+                <Form.Control
+                  required
+                  type="text"
+                  ref={toRef}
+                  placeholder="To"
+                  autoComplete="text"
+                />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
                   Enter a valid address.
@@ -226,7 +222,12 @@ export default function RegisterRun() {
               </FloatingLabel>
             </Col>
             <Col>
-              <Button variant="custom" type="button" className="btn" onClick={()=>setCalc(true)}>
+              <Button
+                variant="custom"
+                type="button"
+                className="btn"
+                onClick={() => setCalc(true)}
+              >
                 Check
               </Button>
             </Col>
@@ -285,7 +286,7 @@ export default function RegisterRun() {
           setJoinButtonPressed={setJoinButtonPressed}
           text="THANK YOU FOR PLANNING A RUN!"
         />
-        <ShowHikeRoute calc={calc}/>
+        <ShowHikeRoute calc={calc} fromRef={fromRef} toRef={toRef} />
       </div>
     </div>
   );
