@@ -10,7 +10,7 @@ import useTime from "../../hooks/useTime";
 export default function Run(props) {
   const { run, type, canJoinRun, join, pastEvent, setUpdateData, updateData } =
     props;
-  const { formatTime } = useTime()
+  const { formatTime } = useTime();
   const joinStatus = canJoinRun(run.id) || false;
   const [time, setTime] = useState("");
   const [eventTime, setEventTime] = useState("");
