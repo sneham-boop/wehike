@@ -23,22 +23,11 @@ const ShowRunsOnMap = ({ center, zoom }) => {
     ));
   };
 
-  // useEffect(() => {
-  //   function getLocation() {
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //       const { latitude, longitude } = position.coords;
-  //       setCurrentLocation({ lat: latitude, lng: longitude });
-  //     });
-  //   }
-  //   getLocation();
-  // }, []);
-
   return (
     <>
       <div className="map">
         <GoogleMap
           defaultCenter={{ lat: 43.6532, lng: -79.3832 }}
-          center={center}
           defaultZoom={zoom}
         >
           <Markers

@@ -3,7 +3,6 @@ import "../../styles/Map.css";
 import { useRecoilValue } from "recoil";
 import { userCoordinatesAtom } from "../../hooks/userCoords";
 import { Link } from "react-router-dom";
-// import DefaultMap from "./DefaultMap";
 import ShowRunsOnMap from "./ShowRunsOnMap";
 import expand from "../../images/expand_more_FILL0_wght400_GRAD0_opsz48.svg";
 
@@ -31,7 +30,6 @@ export default function Map() {
             Can't find a hike near you? Plan one <Link to="/create">here</Link>.
           </p>
         </section>
-        {/* <DefaultMap center={center} zoom={zoom} /> */}
         <ShowRunsOnMap center={center} zoom={zoom} />
       </div>
     </>
