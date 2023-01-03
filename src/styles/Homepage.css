@@ -23,8 +23,7 @@
   font-size: 90px;
   font-weight: 100;
   text-align: center;
-  /* font-family: "Sacramento", cursive; */
-  font-family: 'Neucha', cursive;
+  font-family: "Sacramento", cursive;
 }
 
 .home p {
@@ -140,8 +139,6 @@
   .logo-container {
     height: 40vh;
     width: 100vw;
-    /* background-color: #e6795d; */
-    /* background-color: #fc6e34; */
   }
 
   .home-intro h2 {

@@ -9,9 +9,9 @@ export default function Homepage() {
       <div className="home">
         <div>
           <div className="home-intro">
-            <h2>Welcome to weHike!</h2>
+            <h2>Welcome!</h2>
             <p>
-              We organise free, weekly, timed, community hiking events all over Canada.
+              At weHike We organise free, weekly, timed, community hiking events all over Canada.
               Get connected to hikers near you today. Bring a buddy with you!
             </p>
           </div>
