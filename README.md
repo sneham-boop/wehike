@@ -1,6 +1,10 @@
 # Welcome to weHike
 
-weHike is based on my finals project, weRun, for the Lighthouse Labs web development bootcamp. I wanted to add more features to the app and put my own little twist on it! My husband and I often go hiking with our dog and I thought it would be fun to change over this app to track hiking events instead of running events.
+weHike is based on my finals project, weRun, for the Lighthouse Labs web development bootcamp.
+
+Background: I worked on weRun with [Marianne](https://github.com/mariannebourcier) and together we created an amazing app that helped me learn so much along the process. Here is the original [repo](https://github.com/mariannebourcier/werun).
+
+However, I wanted to add more features to the app and put my own little twist on it! My husband and I often go hiking with our dog and I thought it would be fun to change over this app to track hiking events instead of running events. It uses the same backend architecture from werun. 
 
 This app uses React and Bootstrap on the front-end and Express, PostgreSQL and Node on the back-end. Multiple packages and APIS were used to make the user experience smoother, such as Recoil, Google Autocomplete and Google Maps. Twilio is currently being used to send users important information via text messaging.
 
