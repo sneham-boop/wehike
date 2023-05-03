@@ -91,6 +91,9 @@ export default function Navigation() {
                 </Nav.Link>
               </>
             )}
+            <Nav.Link as="a" eventKey="7" className="nav-link" href="https://github.com/sneham-boop/wehike" target="_blank" rel="noopener noreferrer">
+              Github
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
