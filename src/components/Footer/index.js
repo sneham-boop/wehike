@@ -3,13 +3,13 @@ import "./Footer.css";
 // import Heart from "@mui/icons-material/FavoriteRounded";
 
 export default function Footer() {
-  const btnText = "GO UP";
-  const handleScroll = () => {
-    const element = document.getElementById("navbar");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // const btnText = "GO UP";
+  // const handleScroll = () => {
+  //   const element = document.getElementById("navbar");
+  //   if (element) {
+  //     element.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   return (
     <footer className="footer">
@@ -18,14 +18,14 @@ export default function Footer() {
         <span className="material-symbols-rounded">favorite</span>
         <span>
           by{" "}
-          <a href="https://snehakmahajan.com/" target="_blank">
+          <a href="https://snehakmahajan.com/" target="_blank" rel="noopener noreferrer">
             Sneha Mahajan
           </a>
         </span>
       </section>
       <p className="coolers-text">
         Inspired by the{" "}
-        <a href="https://www.parkrun.ca/" target="_blank">
+        <a href="https://www.parkrun.ca/" target="_blank" rel="noopener noreferrer">
           Parkrun Community
         </a>
       </p>
